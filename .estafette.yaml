@@ -19,4 +19,4 @@ stages:
     action: copy
     source: 'build/'
     bucket: estafette.secret(q3Jlju-a4DzA-I6L.mMOZDz8bya17YKeiq_Bj63kM7bc00P8GhWCs3IisKw==.idmMFmQNla9iZPDYuv546YmJAHwsRSjKDSruPR6L32QkJ45g9L1RQRN9Q-BAMr3wG4ve-A==)
-    destination: /
+#    destination: .
