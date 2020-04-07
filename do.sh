@@ -16,7 +16,7 @@
 # @fileoverview Shell script to facilitate build-related tasks for VSAQ.
 #
 
-PYTHON_CMD="python"
+PYTHON_CMD="python3"
 JSCOMPILE_CMD="java -jar third_party/closure-compiler/target/closure-compiler-1.0-SNAPSHOT.jar --flagfile=compiler.flags"
 CKSUM_CMD="cksum" # chosen because it's available on most Linux/OS X installations
 BUILD_DIR="build"
