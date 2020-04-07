@@ -1,0 +1,2171 @@
+{
+    "questionnaire": [{
+        "text": "Partner Security assessment for Travix Limited",
+        "version": 1.3,
+        "type": "block",
+        "items": [{
+            "text": "1.  <span class=\"asterisc\">(*)</span> Company Information",
+            "required": true,
+            "type": "block",
+            "id": "block_company_info",
+            "items": [{
+                "text": "1.1 Company Name",
+                "type": "line",
+                "id": "name_of_company"
+            }, {
+                "text": "1.2 Email address for your security team or contact",
+                "type": "line",
+                "id": "security_contact"
+            }, {
+                "text": "1.3 Number of staff directly employed in a security role at your company",
+                "type": "line",
+                "id": "num_sec_personnel"
+            }]
+        }, {
+            "text": "2.  <span class=\"asterisc\">(*)</span> Relationship with Travix",
+            "required": true,
+            "type": "block",
+            "id": "block_integration",
+            "items": [{
+                "text": "2.1 Please select your integration method(s) or application type(s) that define your relationship with Travix:",
+                "choices": [{
+                    "integration_api": "API"
+                }, {
+                    "integration_webapp": "Web Application"
+                }, {
+                    "integration_fat_client": "Fat Client"
+                }, {
+                    "integration_manual": "Manual data transfer via e-mail or SFTP"
+                }, {
+                    "integration_outsourced_software_partner": "Outsourced Software Development Partner"
+                }, {
+                    "integration_other": "Other"
+                }],
+                "type": "checkgroup",
+                "defaultChoice": false
+            }, {
+                "text": "2.2 Please detail how you will be integrating with Travix",
+                "cond": "integration_other",
+                "type": "box",
+                "id": "integration_other_descrip"
+            }]
+        }, {
+            "text": "3.  <span class=\"asterisc\">(*)</span> Personal Information",
+            "required": true,
+            "type": "block",
+            "id": "block_pii",
+            "items": [{
+                "text": "3.1 Will you process or store any personal data of customers or employees of Travix? This includes, but is not limited to names, addresses, email addresses, passport information.",
+                "choices": [{
+                    "pii_yes": "Yes"
+                }, {
+                    "pii_no": "No"
+                }],
+                "type": "radiogroup",
+                "id": "pii",
+                "defaultChoice": false
+            }, {
+                "text": "3.2 Is all personal data you store encrypted at rest across all systems that interact with the personal data?",
+                "choices": [{
+                    "pii_encrypted_yes": "Yes"
+                }, {
+                    "pii_encrypted_no": "No"
+                }],
+                "cond": "pii_yes",
+                "defaultChoice": false,
+                "type": "radiogroup",
+                "id": "pii_encrypted"
+            }, {
+                "text": "3.3 Please detail any systems that do not support encryption at rest and compensating controls in place.",
+                "cond": "pii_encrypted_no",
+                "type": "box",
+                "id": "pii_compensating_controls"
+            }, {
+                "text": "3.4 Will Travix process or store any of your customer data?",
+                "choices": [{
+                    "pii_travix_store_yes": "Yes"
+                }, {
+                    "pii_travix_store_no": "No"
+                }],
+                "type": "radiogroup",
+                "id": "pii_travix_store",
+                "defaultChoice": false
+            }]
+        }, {
+            "text": "4. Information Security Program",
+            "type": "block",
+            "id": "block_security_program",
+            "items": [{
+                "text": "4.1  <span class=\"asterisc\">(*)</span> Security Controls",
+                "required": true,
+                "type": "block",
+                "id": "block_security_controls",
+                "items": [{
+                    "text": "4.1.1 Select the controls you currently maintain as elements of your information security program:",
+                    "choices": [{
+                        "secprog_privacy_policy": "An external policy or notice to the public, users, or customers describing how you protect the security and privacy of data e.g. privacy policy"
+                    }, {
+                        "secprog_policies": "Written internal policies, guidelines and documented practices for the safe handling and protection of data"
+                    }, {
+                        "secprog_intaudits": "Internal audits of the security program"
+                    }, {
+                        "secprog_independent_audit": "Third-party audits of the security program"
+                    }, {
+                        "secprog_ra": "A risk management framework to regularly review the threats to your company"
+                    }, {
+                        "secprog_hr": "A process to ensure security is present throughout your Human Resources processes"
+                    }, {
+                        "secprog_vendorsec": "A process to ensure that your third parties and subcontractors are capable of taking appropriate steps to protect data and systems"
+                    }, {
+                        "secprog_incidentmanagement": "Processes and procedures to ensure that security incidents are discovered in a timely manner and dealt with effectively"
+                    }, {
+                        "secprog_changemgmt": "A change management process to endure that all changes to networks, systems and processes are appropriately reviewed"
+                    }],
+                    "type": "checkgroup",
+                    "defaultChoice": false
+                }, {
+                    "text": "4.1.2  <span class=\"asterisc\">(*)</span> Provide a link to your public security and/or privacy policy.",
+                    "cond": "secprog_privacy_policy",
+                    "required": true,
+                    "type": "line",
+                    "id": "secprog_privacy_policy_uri"
+                }, {
+                    "text": "4.1.3 Security and Privacy Policies",
+                    "cond": "secprog_policies",
+                    "type": "block",
+                    "id": "block_security_policies",
+                    "items": [{
+                        "text": "4.1.3.1 Select the topics that are covered by your security and privacy policies:",
+                        "choices": [{
+                            "secprog_policies_class": "Information classification and protection"
+                        }, {
+                            "secprog_policies_hr": "Security in human resources"
+                        }, {
+                            "secprog_policies_physsec": "Physical security requirements"
+                        }, {
+                            "secprog_policies_acceptableuse": "Acceptable use of information and IT devices"
+                        }, {
+                            "secprog_policies_accesscontrol": "Access control"
+                        }, {
+                            "secprog_policies_privacy": "Authorized/unauthorized use and disclosure of data"
+                        }, {
+                            "secprog_policies_software": "Software development"
+                        }, {
+                            "secprog_policies_incidentmgmt": "Incident management and response procedures for both security and privacy incidents"
+                        }, {
+                            "secprog_policies_compliance": "Compliance with laws and regulations"
+                        }, {
+                            "secprog_policies_data_destruction": "Retention and destruction of data"
+                        }],
+                        "type": "checkgroup",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.3.2 It seems that some topics are not covered by your security policies. Please explain below if you have controls in place to compensate for the lack of these policies:",
+                        "cond": "!secprog_policies_class || !secprog_policies_hr || !secprog_policies_physsec || !secprog_policies_acceptableuse || !secprog_policies_accesscontrol || !secprog_policies_privacy || !secprog_policies_software || !secprog_policies_incidentmgmt || !secprog_policies_compliance",
+                        "type": "box",
+                        "name": "Important security policies missing",
+                        "id": "warn_secprog_policies"
+                    }, {
+                        "text": "4.1.3.3  <span class=\"asterisc\">(*)</span> How often does your company review its security policies?",
+                        "choices": [{
+                            "secprog_policies_review_immediately": "In response to incidents or business changes."
+                        }, {
+                            "secprog_policies_review_often": "Multiple times per year."
+                        }, {
+                            "secprog_policies_review_annually": "Once per year."
+                        }, {
+                            "secprog_policies_review_rare": "Less frequently."
+                        }],
+                        "required": true,
+                        "type": "radiogroup",
+                        "defaultChoice": false
+                    }]
+                }, {
+                    "text": "4.1.4  <span class=\"asterisc\">(*)</span> Internal Audit",
+                    "required": true,
+                    "cond": "secprog_intaudits",
+                    "items": [{
+                        "text": "4.1.4.1 How often are internal information security audits performed?",
+                        "choices": [{
+                            "secprog_intaudits_often": "Quarterly or more often."
+                        }, {
+                            "secprog_intaudits_annually": "At least annually."
+                        }, {
+                            "secprog_intaudits_rare": "Less frequently."
+                        }],
+                        "type": "radiogroup",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.4.2 Does the scope of your internal assessment include the entire security and privacy program, as well as all operations, services, and systems that involve access to the customer data or systems that are used in this project?",
+                        "choices": [{
+                            "secprog_intaudits_scope_yes": "Yes."
+                        }, {
+                            "secprog_intaudits_scope_no": "No, the assessments are limited."
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_intaudits_scope",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.4.3 How is the scope limited?",
+                        "cond": "secprog_intaudits_scope_no",
+                        "type": "line",
+                        "id": "secprog_intaudits_scope_limits"
+                    }, {
+                        "text": "4.1.4.4 Does your internal assessment audit your company's compliance with any specific information security or privacy standards?",
+                        "choices": [{
+                            "secprog_intaudits_std_yes": "Yes."
+                        }, {
+                            "secprog_intaudits_std_no": "No."
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_intaudits_std",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.4.5 To what standards does your internal assessment audit compliance?",
+                        "cond": "secprog_intaudits_std_yes",
+                        "type": "line",
+                        "id": "secprog_intaudits_std_names"
+                    }],
+                    "type": "block",
+                    "id": "block_internal_audit"
+                }, {
+                    "text": "4.1.5  <span class=\"asterisc\">(*)</span> Independent Audit",
+                    "required": true,
+                    "cond": "secprog_independent_audit",
+                    "items": [{
+                        "text": "4.1.5.1 How often are you independently audited by a third party?",
+                        "choices": [{
+                            "secprog_extaudits_quarterly": "Quarterly or more often."
+                        }, {
+                            "secprog_extaudits_annually": "Annually."
+                        }, {
+                            "secprog_extaudits_rare": "Less frequently."
+                        }],
+                        "type": "radiogroup",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.5.2 Does the independent audit include the entire security program?",
+                        "choices": [{
+                            "secprog_extaudits_scope_yes": "Yes."
+                        }, {
+                            "secprog_extaudits_scope_no": "No, the audits are limited."
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_extaudits_scope",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.5.3 Please detail the scope of the independent audit",
+                        "cond": "secprog_extaudits_scope_no",
+                        "type": "line",
+                        "id": "secprog_extaudits_scope_limited"
+                    }, {
+                        "text": "4.1.5.4 Does the independent audit include checking your companies compliance with any specific information security standard?",
+                        "choices": [{
+                            "secprog_extaudits_std_yes": "Yes."
+                        }, {
+                            "secprog_extaudits_std_no": "No."
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_extaudits_std",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.5.5 What standards does the audit comply with?",
+                        "cond": "secprog_extaudits_std_yes",
+                        "type": "line",
+                        "id": "secprog_extaudits_std_list"
+                    }, {
+                        "text": "4.1.5.6 How often do you change auditors? Please also list the auditors you selected for the most recent audits",
+                        "type": "box",
+                        "id": "secprog_extaudits_companies"
+                    }, {
+                        "text": "4.1.5.7 Are you willing to share a management summary of the most recent audit reports?",
+                        "choices": [{
+                            "secprog_extaudits_sharereports_yes": "Yes."
+                        }, {
+                            "secprog_extaudits_sharereports_no": "No."
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_extaudits_sharereports",
+                        "defaultChoice": false
+                    }],
+                    "type": "block",
+                    "id": "block_independent_audits"
+                }, {
+                    "text": "4.1.6  <span class=\"asterisc\">(*)</span> Risk Framework",
+                    "required": true,
+                    "cond": "secprog_ra",
+                    "items": [{
+                        "text": "4.1.6.1 Under your risk management process, how often are risk assessments reviewed and updated?",
+                        "choices": [{
+                            "secprog_ra_often": "Multiple times per year."
+                        }, {
+                            "secprog_ra_annually": "Once per year."
+                        }, {
+                            "secprog_ra_rare": "Less frequently."
+                        }],
+                        "type": "radiogroup",
+                        "defaultChoice": false
+                    }],
+                    "type": "block",
+                    "id": "block_risk_framework"
+                }, {
+                    "text": "4.1.7  <span class=\"asterisc\">(*)</span> Personnel Security",
+                    "required": true,
+                    "cond": "secprog_hr",
+                    "items": [{
+                        "text": "4.1.7.1 Do you have processes in place to ensure that access to data is granted solely on a \"need-to-know\" or \"least privilege\" basis, in accordance with the job descriptions and responsibilities of users?",
+                        "choices": [{
+                            "secprog_peopleops_needtoknow_yes": "Yes"
+                        }, {
+                            "secprog_peopleops_needtoknow_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_peopleops_needtoknow",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.7.2 Do these processes also revoke access when the need no longer exists?",
+                        "choices": [{
+                            "secprog_peopleops_revoke_access_yes": "Yes"
+                        }, {
+                            "secprog_peopleops_revoke_access_no": "No"
+                        }],
+                        "cond": "secprog_peopleops_needtoknow_yes",
+                        "defaultChoice": false,
+                        "type": "radiogroup",
+                        "id": "secprog_peopleops_revoke_access"
+                    }, {
+                        "text": "4.1.7.3 Do you have a disciplinary process in place for handling policy violations?",
+                        "choices": [{
+                            "secprog_peopleops_disciplinary_process_yes": "Yes"
+                        }, {
+                            "secprog_peopleops_disciplinary_process_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_peopleops_disciplinary_process",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.7.4 Do you have a process to remove access for individuals leaving employment, so that all access is revoked, including Software-as-a-Service applications?",
+                        "choices": [{
+                            "secprog_peopleops_leaver_yes": "Yes"
+                        }, {
+                            "secprog_peopleops_leaver_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_peopleops_leaver",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.7.5 How often do you require your employees to undergo information security training?",
+                        "choices": [{
+                            "secprog_peopleops_train_never": "Never."
+                        }, {
+                            "secprog_peopleops_train_hire": "Once, upon hire."
+                        }, {
+                            "secprog_peopleops_train_annually": "Upon hire, and at least once per year."
+                        }],
+                        "type": "radiogroup",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.7.6 Do you require temps, interns, and contractors to undergo security training?",
+                        "choices": [{
+                            "secprog_train_tvc_yes": "Yes"
+                        }, {
+                            "secprog_train_tvc_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_train_tvc",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.7.7 Do you perform background checks on all personnel?",
+                        "choices": [{
+                            "secprog_background_checks_yes": "Yes"
+                        }, {
+                            "secprog_background_checks_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_background_checks",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.7.8 Background Checks",
+                        "cond": "secprog_background_checks_yes",
+                        "type": "block",
+                        "id": "block_background_checks",
+                        "items": [{
+                            "text": "What kinds of background checks do you perform for employees who potentially have access to confidential information? Select all that apply.",
+                            "choices": [{
+                                "secprog_bgcheck_cv": "CV/resume checks"
+                            }, {
+                                "secprog_bgcheck_reference": "Reference checks"
+                            }, {
+                                "secprog_bgcheck_criminal": "Criminal record/conviction checks"
+                            }, {
+                                "secprog_bgcheck_credit": "Credit checks"
+                            }, {
+                                "secprog_bgcheck_other": "Other background checks, as described below"
+                            }],
+                            "type": "checkgroup",
+                            "defaultChoice": false
+                        }, {
+                            "text": "Please state what other checks you perform for new hires:",
+                            "cond": "secprog_bgcheck_other",
+                            "type": "box",
+                            "id": "secprog_bgcheck_other_desc"
+                        }]
+                    }],
+                    "type": "block",
+                    "id": "block_personnel_security"
+                }, {
+                    "text": "4.1.8  <span class=\"asterisc\">(*)</span> Third Party Security",
+                    "required": true,
+                    "cond": "secprog_vendorsec",
+                    "items": [{
+                        "text": "4.1.8.1 Do you perform reviews of all service providers and subcontractors, to ensure they sufficiently protect the security of data and systems they access?",
+                        "choices": [{
+                            "secprog_vendorsec_owner_yes": "Yes."
+                        }, {
+                            "secprog_vendorsec_owner_no": "No."
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_vendorsec_owner",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.8.2 Do you have written contracts with third parties, that require them to adequately protect the security and privacy of data they may receive during the partnership?",
+                        "choices": [{
+                            "secprog_vendorsec_clauses_yes": "Yes, we require all our outsourcing providers, vendors and subcontractors to agree to contract clauses that assert security requirements."
+                        }, {
+                            "secprog_vendorsec_clauses_no": "No, not all vendors that are protection-ally exposed to data have agreed to security requirements contractually."
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_vendorsec_clauses",
+                        "defaultChoice": false
+                    }],
+                    "type": "block",
+                    "id": "block_vendor_security"
+                }, {
+                    "text": "4.1.9  <span class=\"asterisc\">(*)</span> Security Incident Management",
+                    "required": true,
+                    "cond": "secprog_incidentmanagement",
+                    "items": [{
+                        "text": "4.1.9.1 Select the controls you have in place for identifying security incidents:",
+                        "choices": [{
+                            "secprog_incidents_monitoring_ids": "We have signature and/or anomaly based IDS/IPS in place, and sensors are in place at strategic points throughout the network."
+                        }, {
+                            "secprog_incidents_monitoring_logs": "We regularly review log files for signs of intrusion."
+                        }, {
+                            "secprog_incidents_monitoring_other": "We have other methods in place to detect security and privacy incidents."
+                        }],
+                        "type": "checkgroup",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.9.2 Describe the other detection methods you have in place.",
+                        "cond": "secprog_incidents_monitoring_other",
+                        "type": "box",
+                        "id": "secprog_incidents_monitoring_other_description"
+                    }, {
+                        "text": "4.1.9.3 Are incident response procedures documented?",
+                        "choices": [{
+                            "secprog_incidents_procedures_yes": "Yes"
+                        }, {
+                            "secprog_incidents_procedures_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_incidents_procedures",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.9.4 Do you have the resources to internally conduct incident investigations?",
+                        "choices": [{
+                            "secprog_incidents_knowhow_yes": "Yes"
+                        }, {
+                            "secprog_incidents_knowhow_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_incidents_knowhow",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.9.5 Do you inform affected customers about security incidents?",
+                        "choices": [{
+                            "secprog_incidents_inform_yes": "Yes"
+                        }, {
+                            "secprog_incidents_inform_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_incidents_inform",
+                        "defaultChoice": false
+                    }],
+                    "type": "block",
+                    "id": "block_incident_response"
+                }, {
+                    "text": "4.1.10  <span class=\"asterisc\">(*)</span> Change Management",
+                    "required": true,
+                    "cond": "secprog_changemgmt",
+                    "items": [{
+                        "text": "4.1.10.1 Is your change management process formally documented, and does it classify changes by risk?",
+                        "choices": [{
+                            "secprog_changemgmt_documented_yes": "Yes"
+                        }, {
+                            "secprog_changemgmt_documented_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_changemgmt_documented",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.10.2 Does your change review board include representatives from the teams that are responsible for security?",
+                        "choices": [{
+                            "secprog_changemgmt_secrep_yes": "Yes"
+                        }, {
+                            "secprog_changemgmt_secrep_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_changemgmt_secrep",
+                        "defaultChoice": false
+                    }, {
+                        "text": "4.1.10.3 Do you retain records and documentation about the changes that go through change management?",
+                        "choices": [{
+                            "secprog_changemgmt_records_yes": "Yes"
+                        }, {
+                            "secprog_changemgmt_records_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "secprog_changemgmt_records",
+                        "defaultChoice": false
+                    }],
+                    "type": "block",
+                    "id": "block_changemgmt"
+                }]
+            }, {
+                "text": "4.2 Compliance and Regulations",
+                "type": "block",
+                "id": "block_compliance_regs",
+                "items": [{
+                    "text": "4.2.1  <span class=\"asterisc\">(*)</span> Please select any compliance or regulatory requirements that impact the scope of your relationship with Travix:",
+                    "choices": [{
+                        "comp_reg_pcidss": "PCI-DSS"
+                    }, {
+                        "comp_reg_ssae1618": "SSAE16/18"
+                    }, {
+                        "comp_reg_eudpagdpr": "EU DPA/GDPR"
+                    }, {
+                        "comp_reg_other": "Other, please detail."
+                    }],
+                    "required": true,
+                    "type": "checkgroup",
+                    "defaultChoice": false
+                }, {
+                    "text": "4.2.2  <span class=\"asterisc\">(*)</span> Please detail the other compliance or regulatory requirements that impact the scope of your relationship with Travix.",
+                    "cond": "comp_reg_other",
+                    "required": true,
+                    "type": "box",
+                    "id": "comp_reg_other_descrip"
+                }]
+            }]
+        }, {
+            "text": "5. Application Security",
+            "cond": "integration_api || integration_webapp || integration_fat_client || integration_outsourced_software_partner",
+            "type": "block",
+            "id": "block_app_sec",
+            "items": [{
+                "text": "5.1 SDLC",
+                "type": "block",
+                "id": "block_sdlc",
+                "items": [{
+                    "text": "5.1.1 Select all that apply:",
+                    "choices": [{
+                        "sdlc_awareness": "Is security awareness provided to all developers upon employment and annually thereafter?"
+                    }, {
+                        "sdlc_secure_standards": "Do you have secure coding standards, principles and requirements to guide developers?"
+                    }, {
+                        "sdlc_threat_modelling": "Do you perform Threat Modeling on all services?"
+                    }],
+                    "type": "checkgroup",
+                    "defaultChoice": false
+                }]
+            }, {
+                "text": "5.2 Public APIs",
+                "cond": "integration_api",
+                "type": "block",
+                "id": "block_public_api",
+                "items": [{
+                    "text": "5.2.1 Do you have a publicly available API that Travix will access?",
+                    "choices": [{
+                        "public_api_yes": "Yes"
+                    }, {
+                        "public_api_no": "No"
+                    }],
+                    "type": "radiogroup",
+                    "id": "public_api",
+                    "defaultChoice": false
+                }, {
+                    "text": "5.2.2 Is this API available over HTTPS?",
+                    "choices": [{
+                        "public_api_https_yes": "Yes"
+                    }, {
+                        "public_api_https_no": "No"
+                    }],
+                    "cond": "public_api_yes",
+                    "defaultChoice": false,
+                    "type": "radiogroup",
+                    "id": "public_api_https"
+                }, {
+                    "text": "5.2.3 Is this API available ONLY over HTTPS? If the URL is edited so that it starts with <code>http://</code>, will it will automatically redirect to <code>https://</code>?",
+                    "choices": [{
+                        "public_api_https_only_yes": "Yes"
+                    }, {
+                        "public_api_https_only_no": "No"
+                    }],
+                    "cond": "public_api_https_yes",
+                    "defaultChoice": false,
+                    "type": "radiogroup",
+                    "id": "public_api_https_only"
+                }, {
+                    "text": "5.2.4 Do all your externally exposed HTTPS endpoints have an \"A\" score in <a href='https://www.ssllabs.com'>ssllabs.com</a>?",
+                    "choices": [{
+                        "public_api_ssllabs_yes": "Yes"
+                    }, {
+                        "public_api_ssllabs_no": "No"
+                    }],
+                    "cond": "public_api_https_yes",
+                    "defaultChoice": false,
+                    "type": "radiogroup",
+                    "id": "public_api_ssllabs"
+                }, {
+                    "text": "5.2.5  <span class=\"asterisc\">(*)</span> Please describe in detail how Travix will authenticate to your API, detailing any authentication libraries, where applicable:",
+                    "cond": "public_api_https_yes",
+                    "required": true,
+                    "type": "box",
+                    "id": "public_api_authentication"
+                }, {
+                    "text": "5.2.6 Are you able to easily reset / rotate these credentials if necessary?",
+                    "choices": [{
+                        "public_api_rotate_credentials_yes": "Yes"
+                    }, {
+                        "public_api_rotate_credentials_no": "No"
+                    }],
+                    "cond": "public_api_https_yes",
+                    "defaultChoice": false,
+                    "type": "radiogroup",
+                    "id": "public_api_rotate_credentials"
+                }, {
+                    "text": "5.2.7  <span class=\"asterisc\">(*)</span> What is the process for rotate these credentials? Who should Travix contact in order to have this done?",
+                    "cond": "public_api_rotate_credentials_yes",
+                    "required": true,
+                    "type": "box",
+                    "id": "public_api_rotate_credentials_process"
+                }, {
+                    "text": "5.2.8  <span class=\"asterisc\">(*)</span> Describe the scope / permissions that these credentials have. For example, are they allowed an unlimited number of requests? Are they able only to hit certain endpoints or can they access your whole API platform?",
+                    "cond": "public_api_https_yes",
+                    "required": true,
+                    "type": "box",
+                    "id": "public_api_credentials_scope"
+                }]
+            }, {
+                "text": "5.3 Web Application Security",
+                "cond": "integration_webapp",
+                "type": "block",
+                "id": "block_web_app_security",
+                "items": [{
+                    "text": "5.3.1 Is the web application exclusively reachable over HTTPS? For example. even if the user manually edits the URL to start with <code>http://</code>, will it will redirect to <code>https://</code>?",
+                    "choices": [{
+                        "application_exclusive_https_yes": "Yes."
+                    }, {
+                        "application_exclusive_https_no": "No."
+                    }],
+                    "type": "radiogroup",
+                    "id": "application_exclusive_https",
+                    "defaultChoice": false
+                }, {
+                    "text": "5.3.2 Do all your externally exposed HTTPS endpoints have an \"A\" score in <a href='https://www.ssllabs.com'>ssllabs.com</a>?",
+                    "choices": [{
+                        "application_ssllabs_yes": "Yes."
+                    }, {
+                        "application_ssllabs_no": "No."
+                    }],
+                    "type": "radiogroup",
+                    "id": "application_ssllabs",
+                    "defaultChoice": false
+                }]
+            }, {
+                "text": "5.4 Authentication and Authorisation",
+                "cond": "integration_webapp || integration_fat_client",
+                "type": "block",
+                "id": "block_authn_authz",
+                "items": [{
+                    "text": "5.4.1 Basic Information",
+                    "type": "block",
+                    "items": [{
+                        "text": "5.4.1.1 Tell us how users authenticate to your application:",
+                        "choices": [{
+                            "application_authentication_requires_login": "Our application requires regular users to log in. Most features aren't available without logging in."
+                        }, {
+                            "application_authentication_admin_interface": "In addition to an interface for regular users, our application provides an administration interface."
+                        }, {
+                            "application_authentication_roles": "Our application features complex user management. Various roles can be assigned to user accounts."
+                        }],
+                        "type": "checkgroup",
+                        "defaultChoice": false
+                    }, {
+                        "text": "5.4.1.2 Is your application integrated with any of the following single sign-on (SSO) mechanisms?",
+                        "cond": "application_authentication_requires_login || application_authentication_admin_interface",
+                        "choices": [{
+                            "application_authentication_sso_saml": "SAML 2.0"
+                        }, {
+                            "application_authentication_sso_oauth": "OpenID Connect / OAuth2 Login"
+                        }, {
+                            "application_authentication_sso_openid": "OpenID 2.0"
+                        }, {
+                            "application_authentication_sso_ldap": "LDAP / Active Directory"
+                        }, {
+                            "application_authentication_sso_other": "Other"
+                        }, {
+                            "application_authentication_sso_none": "None of the above"
+                        }],
+                        "type": "checkgroup",
+                        "defaultChoice": false
+                    }, {
+                        "text": "5.4.1.3 What other SSO mechanisms does the application support?",
+                        "cond": "application_authentication_roles",
+                        "type": "line",
+                        "id": "application_authentication_sso_other_description"
+                    }]
+                }, {
+                    "text": "5.4.2 Does any part of your Web Application or Fat client employ username/password-based authentication?",
+                    "choices": [{
+                        "application_custom_auth_yes": "Yes"
+                    }, {
+                        "application_custom_auth_no": "No, all authentication is based on single sign-on (SSO)."
+                    }],
+                    "type": "radiogroup",
+                    "id": "application_custom_auth",
+                    "defaultChoice": false
+                }, {
+                    "text": "5.4.3 Username/Password Authentication",
+                    "cond": "application_custom_auth_yes",
+                    "type": "block",
+                    "id": "block_password_storage",
+                    "items": [{
+                        "text": "5.4.3.1 Password Storage",
+                        "type": "block",
+                        "items": [{
+                            "text": "How does the application store passwords?",
+                            "choices": [{
+                                "application_custom_auth_storage_plain": "In plain text (unencrypted)"
+                            }, {
+                                "application_custom_auth_storage_reversible": "Using reversible encryption (e.g., DES, 3DES, AES, etc.)."
+                            }, {
+                                "application_custom_auth_storage_hashed": "Using a secure <a href='https://en.wikipedia.org/wiki/Cryptographic_hash_function'>cryptographic one-way hash function</a> (such as SHA-256) of the password, without the use of a <a href='http://en.wikipedia.org/wiki/Salt_(cryptography)'>salt</a>"
+                            }, {
+                                "application_custom_auth_storage_salted": "Using a secure <a href='http://en.wikipedia.org/wiki/Cryptographic_hash_function'>cryptographic one-way hash function</a> (such as SHA-256) of the <a href='http://en.wikipedia.org/wiki/Salt_(cryptography)'>salted</a> password"
+                            }, {
+                                "application_custom_auth_storage_pbkdf": "Using a dedicated password-based key derivation function, such as <a href='http://en.wikipedia.org/wiki/Bcrypt'>bcrypt</a>, <a href='http://en.wikipedia.org/wiki/PBKDF2'>PBKDF2</a> or <a href='http://en.wikipedia.org/wiki/Scrypt'>scrypt</a>"
+                            }, {
+                                "application_custom_auth_storage_other": "None of the above"
+                            }],
+                            "type": "radiogroup",
+                            "defaultChoice": false
+                        }, {
+                            "text": "Explain how your application stores passwords:",
+                            "cond": "application_custom_auth_storage_other",
+                            "type": "box",
+                            "id": "application_custom_auth_storage_other_what"
+                        }]
+                    }, {
+                        "text": "5.4.3.2 Setting an Initial Password",
+                        "type": "block",
+                        "id": "block_initial_password",
+                        "items": [{
+                            "text": "How do users get their initial passwords?",
+                            "choices": [{
+                                "application_custom_auth_initpwd_selfset": "Users self-register and set their passwords online directly within the application."
+                            }, {
+                                "application_custom_auth_initpwd_email": "The initial password or a link to set the initial password is sent to users by email."
+                            }, {
+                                "application_custom_auth_initpwd_snail": "The initial password is provided in a (physical) letter sent to a verified address."
+                            }, {
+                                "application_custom_auth_initpwd_other": "None of the above."
+                            }],
+                            "type": "radiogroup",
+                            "defaultChoice": false
+                        }, {
+                            "text": "Explain how users get their initial passwords:",
+                            "cond": "application_custom_auth_initpwd_other",
+                            "type": "box",
+                            "id": "application_custom_auth_initpwd_other_what"
+                        }, {
+                            "text": "When the user gets their initial password, will their account be prepopulated with any confidential information? For example, in an online payroll portal, a user can typically access previous pay statements even when the account is brand new.",
+                            "cond": "application_custom_auth_initpwd_email",
+                            "choices": [{
+                                "application_custom_auth_initpwd_prepopulated_yes": "Yes, when users log in for the first time, confidential information will already be present."
+                            }, {
+                                "application_custom_auth_initpwd_prepopulated_no": "No, at the initial login, no confidential information will be available to the user."
+                            }],
+                            "type": "radiogroup",
+                            "id": "application_custom_auth_initpwd_prepopulated",
+                            "defaultChoice": false
+                        }]
+                    }, {
+                        "text": "5.4.3.3 Account Recovery",
+                        "type": "block",
+                        "id": "block_account_recovery",
+                        "items": [{
+                            "text": "Sometimes, passwords are simply forgotten \u2014 it happens to the best of us. How does your application deal with users who can no longer access their accounts?",
+                            "choices": [{
+                                "application_custom_auth_recovery_questions": "The user is asked questions that were set up when the account was created."
+                            }, {
+                                "application_custom_auth_recovery_resetlink": "A password reset link is sent via email to the user's registered email address."
+                            }, {
+                                "application_custom_auth_recovery_newpwd": "A new password is sent via email to the user's registered email address."
+                            }, {
+                                "application_custom_auth_recovery_other": "None of the above."
+                            }],
+                            "type": "checkgroup",
+                            "defaultChoice": false
+                        }, {
+                            "text": "Describe your password recovery mechanism:",
+                            "cond": "application_custom_auth_recovery_other",
+                            "type": "box",
+                            "id": "application_custom_auth_recovery_other_what"
+                        }]
+                    }]
+                }, {
+                    "text": "5.4.4 Authentication Cookies and Sessions",
+                    "cond": "application_authentication_requires_login || application_authentication_admin_interface",
+                    "type": "block",
+                    "id": "block_auth_cookies",
+                    "items": [{
+                        "text": "5.4.4.1 Cookies can be decorated with a special keyword, <code>HttpOnly</code>. If this keyword is set, the browser will not allow JavaScript to access the cookie. Even if the application has a cross-site scripting vulnerability, this keyword makes it much harder for an attacker to steal the session cookie.",
+                        "choices": [{
+                            "application_auth_cookies_httponly_yes": "The <code>HttpOnly</code> keyword is set for all our authentication cookies."
+                        }, {
+                            "application_auth_cookies_httponly_no": "Our application does not make use of this defense-in-depth mechanism."
+                        }],
+                        "type": "radiogroup",
+                        "id": "application_auth_cookies_httponly",
+                        "defaultChoice": false
+                    }, {
+                        "text": "5.4.4.2 Session IDs can be constructed in many ways. Select the methods used in your application:",
+                        "choices": [{
+                            "application_auth_cookies_framework": "The web application framework we use has a built-in session ID mechanism."
+                        }, {
+                            "application_auth_cookies_random": "Our session IDs are randomly generated strings or numbers."
+                        }, {
+                            "application_auth_cookies_sig": "We store a signed token as a cookie to indicate that the user is successfully logged in."
+                        }, {
+                            "application_auth_cookies_other": "We use some other mechanism."
+                        }],
+                        "type": "checkgroup",
+                        "defaultChoice": false
+                    }, {
+                        "text": "5.4.4.3  <span class=\"asterisc\">(*)</span> Describe the mechanism you're using:",
+                        "cond": "application_auth_cookies_other",
+                        "required": true,
+                        "type": "box",
+                        "id": "application_auth_cookies_other_explain"
+                    }, {
+                        "text": "5.4.4.4 What's the name of the framework that generates your session IDs?",
+                        "cond": "application_auth_cookies_framework",
+                        "type": "line",
+                        "id": "application_auth_cookies_framework_which"
+                    }, {
+                        "text": "5.4.4.5 Do sessions automatically time out after a specified period of inactivity?",
+                        "choices": [{
+                            "application_auth_cookies_timeout_yes": "Yes"
+                        }, {
+                            "application_auth_cookies_timeout_no": "No"
+                        }],
+                        "cond": "application_auth_cookies_sig || application_auth_cookies_random",
+                        "defaultChoice": false,
+                        "type": "radiogroup",
+                        "id": "application_auth_cookies_timeout"
+                    }, {
+                        "text": "5.4.4.6 How long is the session timeout?",
+                        "cond": "application_auth_cookies_timeout_yes || application_auth_cookies_framework",
+                        "type": "line",
+                        "id": "application_auth_cookies_timeout_length"
+                    }, {
+                        "text": "5.4.4.7 Does the application use a secure <a href='https://en.wikipedia.org/wiki/Pseudorandom_number_generator#Cryptographically_secure_pseudorandom_number_generators'>cryptographic pseudo random number generator</a> (PRNG) to generate session IDs? The PRNG should not allow the state of the generator to be recalculated from its output, and the entropy of the session ID should be sufficient to make brute-forcing infeasible.",
+                        "choices": [{
+                            "application_auth_cookies_prng_yes": "Yes, we use a PRNG that meets these criteria."
+                        }, {
+                            "application_auth_cookies_prng_no": "No, we don't use a PRNG, or our PRNG doesn't meet these criteria."
+                        }],
+                        "cond": "application_auth_cookies_random",
+                        "defaultChoice": false,
+                        "type": "radiogroup",
+                        "id": "application_auth_cookies_prng"
+                    }, {
+                        "text": "5.4.4.8 Does your application offer a \"log out\" button or link that, when clicked, not only terminates the session (deletes cookies from the client) but also invalidates the entire session ID?",
+                        "choices": [{
+                            "application_auth_cookies_invalidation_yes": "Yes"
+                        }, {
+                            "application_auth_cookies_invalidation_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "application_auth_cookies_invalidation",
+                        "defaultChoice": false
+                    }]
+                }, {
+                    "text": "5.4.5 Authorization",
+                    "cond": "application_authentication_requires_login || application_authentication_admin_interface",
+                    "type": "block",
+                    "id": "block_authz",
+                    "items": [{
+                        "text": "5.4.5.1 <strong>Horizontal Access Control</strong>: Horizontal access control refers to isolation between users of the same role. For example, consider an application that allows users to access their payroll statements. The application must ensure that a user cannot access another user's statements; i.e., if the user's statement for the month of May is found at <code>statement.html?id=837<b>2</b>&month=5</code>, it shouldn't be possible to see someone else's pay stub simply by loading <code>statement.html?id=837<b>3</b>&month=5</code>.",
+                        "choices": [{
+                            "application_authz_horizontal_yes": "Our application enforces these restrictions on the server side. We have processes in place to make sure nothing slips through the cracks."
+                        }, {
+                            "application_authz_horizontal_no": "It's possible that we missed checks like this in a few places."
+                        }],
+                        "type": "radiogroup",
+                        "id": "application_authz_horizontal",
+                        "defaultChoice": false
+                    }, {
+                        "text": "5.4.5.2 <strong>Vertical Access Control</strong>: When an application supports multiple roles, users should not be able to gain privileges or perform unauthorized actions by loading pages or features that should only be available to users in a different role. Throughout your application, have you ensured that users can perform only those actions that are appropriate for their roles?",
+                        "choices": [{
+                            "application_authz_vertical_yes": "Our application enforces these restrictions on the server side. We have processes in place to make sure nothing slips through the cracks."
+                        }, {
+                            "application_authz_vertical_no": "It's possible that we missed checks like this in a few places."
+                        }],
+                        "type": "radiogroup",
+                        "id": "application_authz_vertical",
+                        "defaultChoice": false
+                    }]
+                }, {
+                    "text": "5.4.6 Authorization-Related Web Vulnerabilities",
+                    "cond": "application_authentication_requires_login || application_authentication_admin_interface",
+                    "type": "block",
+                    "id": "block_authz_vulns",
+                    "items": [{
+                        "text": "5.4.6.1 Cross Site Request Forgery",
+                        "type": "block",
+                        "items": [{
+                            "text": "Does your application protect all state-changing actions against XSRF?",
+                            "choices": [{
+                                "application_authz_xsrf_yes": "Yes, all state-changing actions are protected. We have a way to ensure that no actions are missed (such as enforcing XSRF-token checks in a central place)."
+                            }, {
+                                "application_authz_xsrf_no": "Some actions might not be protected against XSRF."
+                            }],
+                            "type": "radiogroup",
+                            "id": "application_authz_xsrf",
+                            "defaultChoice": false
+                        }, {
+                            "text": "What strategy do you use to protect against XSRF?",
+                            "cond": "application_authz_xsrf_yes",
+                            "choices": [{
+                                "application_authz_xsrf_token": "We protect requests that change the state with tokens that are bound to the user they were generated for, and that expire after a certain amount of time."
+                            }, {
+                                "application_authz_xsrf_header": "We use a custom fixed header that we add to requests."
+                            }, {
+                                "application_authz_xsrf_post": "The application does one of the following: verifies the referrer header; requires all state-changing actions to be POST requests; employs another mechanism to protect against XSRF."
+                            }],
+                            "type": "radiogroup",
+                            "defaultChoice": false
+                        }]
+                    }, {
+                        "text": "5.4.6.2 Cross-Site Script Inclusion",
+                        "type": "block",
+                        "id": "block_xssi",
+                        "items": [{
+                            "text": "<p>Many web applications use AJAX to exchange data in the background, using a syntax that can be automatically interpreted as JavaScript by the user's browser. Unfortunately, this leads to <a href='http://capec.mitre.org/data/definitions/111.html'>cross-site script inclusion</a> (XSSI) vulnerabilities: the JavaScript can be included from a different origin, and any variables set at the other origin can be read.</p><p>For example, consider a contact management application that transmits the user's contacts in a JSON file (contacts.js):</p><p><code>var contacts = {\"name\": \"John Doe\", \"address\": \"jdoe@example.com\", ... }</code></p><p>An attacker can include the following script from their own site, so that when the user visits the attacker's site while logged in to the contact management application, the attacker can read the variable <code>contacts</code> and get access to all of the victim's contact information.</p><p><code>&lt;script src=\"http://www.example.com/contacts.js\"&gt;&lt;/script&gt;</code></p><p>Do either of the following statements describe your application?</p>",
+                            "choices": [{
+                                "application_authz_xssi_jsonp": "Our application makes use of <a href='http://en.wikipedia.org/wiki/JSONP'>JSONP</a>."
+                            }, {
+                                "application_authz_xssi_other": "Our application uses another format that sets variables or calls functions with non-public information."
+                            }],
+                            "type": "checkgroup",
+                            "defaultChoice": false
+                        }, {
+                            "text": "Your application may be affected by XSSI, unless you specifically protect against this kind of attack.",
+                            "choices": [{
+                                "application_authz_xssi_protections_yes": "We use one of the following mechanisms to protect against this kind of attack:<ul><li>protect transmission of such data with an unguessable, unpredictable token (this token must fulfill the same requirements as those described for XSRF tokens above).</li><li>require POST requests, so the data cannot be included in &lt;script&gt tags.</li></ul>"
+                            }, {
+                                "application_authz_xssi_protections_no": "It's possible that part of our web application is vulnerable to XSSI."
+                            }],
+                            "cond": "application_authz_xssi_jsonp || application_authz_xssi_other",
+                            "defaultChoice": false,
+                            "type": "radiogroup",
+                            "id": "application_authz_xssi_protections"
+                        }]
+                    }, {
+                        "text": "5.4.6.3 Clickjacking",
+                        "type": "block",
+                        "id": "block_clickjacking",
+                        "items": [{
+                            "text": "<p>Depending on the nature of your application and the actions that can be taken in it, you may need to protect against <a href='https://www.owasp.org/index.php/Clickjacking'>clickjacking</a>.</p><p>If you don't typically need to frame web pages, your application should use the <a href='https://developer.mozilla.org/en/the_x-frame-options_response_header'>X-Frame-Options response header</a> to tell the browser not to render any page that's framed from a different origin:</p><p><code>X-Frame-Options: SAMEORIGIN</code></p>",
+                            "choices": [{
+                                "application_authz_clickjacking_protected": "Our application employs protections against clickjacking (such as using the <code>X-Frame-Options</code> header)."
+                            }, {
+                                "application_authz_clickjacking_notprotected": "Our application does not have such protections."
+                            }],
+                            "type": "radiogroup",
+                            "defaultChoice": false
+                        }]
+                    }]
+                }]
+            }, {
+                "text": "5.5 Vulnerability Management",
+                "cond": "integration_webapp || integration_fat_client",
+                "type": "block",
+                "id": "block_vulnerability_reporting",
+                "items": [{
+                    "text": "5.5.1 Do you have an easily discoverable way for external researchers to report security vulnerabilities in your systems?",
+                    "choices": [{
+                        "application_vm_securitycontact_yes": "Yes, we have a published security email contact or we provide another way for users to report security issues. Incoming reports are timely reviewed and triaged."
+                    }, {
+                        "application_vm_securitycontact_no": "No, we do not currently offer a way to report security vulnerabilities for priority handling."
+                    }],
+                    "type": "radiogroup",
+                    "id": "application_vm_securitycontact",
+                    "defaultChoice": false
+                }, {
+                    "text": "5.5.2 Do you perform any of the following:",
+                    "choices": [{
+                        "application_perform_sast": "Do you perform Static Application Security Testing?"
+                    }, {
+                        "application_perform_dast": "Do you perform Dynamic Application Security Testing?"
+                    }, {
+                        "application_perform_pen": "Do you perform penetration testing?"
+                    }],
+                    "type": "checkgroup",
+                    "id": "application_perform",
+                    "defaultChoice": false
+                }, {
+                    "text": "5.5.3 Please detail what tool you use for Static Application Security Testing:",
+                    "cond": "application_perform_sast",
+                    "type": "line",
+                    "id": "application_perform_sast_details"
+                }, {
+                    "text": "5.5.4 How frequently do you perform penetration tests and when was your last penetration test?",
+                    "cond": "application_perform_pen",
+                    "type": "line",
+                    "id": "application_perform_pen_frequency"
+                }, {
+                    "text": "5.5.5 Are there any outstanding vulnerabilities from penetration tests, which have not been remediated?",
+                    "choices": [{
+                        "application_outstanding_vuln_yes": "Yes."
+                    }, {
+                        "application_outstanding_vuln_no": "No."
+                    }],
+                    "cond": "application_perform_pen",
+                    "defaultChoice": false,
+                    "type": "radiogroup",
+                    "id": "application_outstanding_vuln"
+                }, {
+                    "text": "5.5.6 Do you use a bug bounty service?",
+                    "choices": [{
+                        "application_bug_bounty_yes": "Yes."
+                    }, {
+                        "application_bug_bounty_no": "No."
+                    }],
+                    "type": "radiogroup",
+                    "id": "application_bug_bounty",
+                    "defaultChoice": false
+                }, {
+                    "text": "5.5.7 Please detail what service you use and whether it is public or private:",
+                    "cond": "application_bug_bounty_yes",
+                    "type": "line",
+                    "id": "application_bug_bounty_details"
+                }, {
+                    "text": "5.5.8 Common Web Application Vulnerabilities",
+                    "cond": "integration_webapp || integration_api",
+                    "type": "block",
+                    "id": "block_vuln_manageability",
+                    "items": [{
+                        "text": "5.5.8.1 Do you have measures in place to protect the Web Application against injection attacks (such as SQL injection)?",
+                        "choices": [{
+                            "sql_injection_vuln_yes": "Yes"
+                        }, {
+                            "sql_injection_vuln_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "sql_injection_vuln",
+                        "defaultChoice": false
+                    }, {
+                        "cond": "sql_injection_vuln_yes",
+                        "type": "box",
+                        "id": "sql_injection_vuln_yes_details",
+                        "text": "5.5.8.2 Please detail the controls you have in place."
+                    }, {
+                        "text": "5.5.8.3 Do you have measures in place to protect the Web Application against Cross-Site Scripting attacks.? Refer to any input validation / output encoding libraries or custom validation logic you use.",
+                        "choices": [{
+                            "xss_attacks_vuln_yes": "Yes"
+                        }, {
+                            "xss_attacks_vuln_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "xss_attacks_vuln",
+                        "defaultChoice": false
+                    }, {
+                        "cond": "xss_attacks_vuln_yes",
+                        "type": "box",
+                        "id": "xss_attacks_vuln_yes_details",
+                        "text": "5.5.8.4 Please detail the controls you have in place."
+                    }, {
+                        "text": "5.5.8.5 Do you have measures in place to ensure resources (servers or in the Cloud) are not misconfigured?",
+                        "choices": [{
+                            "misconfigured_cloud_vuln_yes": "Yes"
+                        }, {
+                            "misconfigured_cloud_vuln_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "misconfigured_cloud_vuln",
+                        "defaultChoice": false
+                    }, {
+                        "cond": "misconfigured_cloud_vuln_yes",
+                        "type": "box",
+                        "id": "misconfigured_cloud_vuln_yes_details",
+                        "text": "5.5.8.6 Please detail the controls you have in place."
+                    }, {
+                        "text": "5.5.8.7 Do you have processes in place to ensure sensitive data is not exposed?",
+                        "choices": [{
+                            "sensitive_data_vuln_yes": "Yes"
+                        }, {
+                            "sensitive_data_vuln_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "sensitive_data_vuln",
+                        "defaultChoice": false
+                    }, {
+                        "cond": "sensitive_data_vuln_yes",
+                        "type": "box",
+                        "id": "sensitive_data_vuln_yes_details",
+                        "text": "5.5.8.8 Please detail the controls you have in place."
+                    }, {
+                        "text": "5.5.8.9 Do you have systems or monitoring in place to prevent and detected automated attacks (such as scraping or DDoS)?",
+                        "choices": [{
+                            "automated_attack_detect_vuln_yes": "Yes"
+                        }, {
+                            "automated_attack_detect_vuln_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "automated_attack_detect_vuln",
+                        "defaultChoice": false
+                    }, {
+                        "cond": "automated_attack_detect_vuln_yes",
+                        "type": "box",
+                        "id": "automated_attack_detect_vuln_yes_details",
+                        "text": "5.5.8.10 Please detail the controls you have in place."
+                    }, {
+                        "text": "5.5.8.11 Do you have measures in place to protect the Web Application against Cross-Site Request Forgery attacks?",
+                        "choices": [{
+                            "csrf_protect_vuln_yes": "Yes"
+                        }, {
+                            "csrf_protect_vuln_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "csrf_protect_vuln",
+                        "defaultChoice": false
+                    }, {
+                        "cond": "csrf_protect_vuln_yes",
+                        "type": "box",
+                        "id": "csrf_protect_vuln_yes_details",
+                        "text": "5.5.8.12 Please detail the controls you have in place."
+                    }, {
+                        "text": "5.5.8.13 Do you have systems or processes in place to prevent Third Party libraries containing known vulnerabilities from running on your Web Application?",
+                        "choices": [{
+                            "third_party_vuln_yes": "Yes"
+                        }, {
+                            "third_party_vuln_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "third_party_vuln",
+                        "defaultChoice": false
+                    }, {
+                        "cond": "third_party_vuln_yes",
+                        "type": "box",
+                        "id": "third_party_vuln_yes_details",
+                        "text": "5.5.8.14 Please detail the controls you have in place."
+                    }]
+                }]
+            }, {
+                "text": "5.6 Testing, QA and Monitoring",
+                "cond": "integration_webapp || integration_fat_client",
+                "type": "block",
+                "id": "block_testing_qa_monitoring",
+                "items": [{
+                    "text": "5.6.1 Do you perform unit tests?",
+                    "choices": [{
+                        "testing_qa_unit_yes": "Yes"
+                    }, {
+                        "testing_qa_unit_no": "No"
+                    }],
+                    "type": "radiogroup",
+                    "id": "testing_qa_unit",
+                    "defaultChoice": false
+                }, {
+                    "text": "5.6.2 Do you perform regression tests?",
+                    "choices": [{
+                        "testing_qa_regression_yes": "Yes"
+                    }, {
+                        "testing_qa_regression_no": "No"
+                    }],
+                    "type": "radiogroup",
+                    "id": "testing_qa_regression",
+                    "defaultChoice": false
+                }, {
+                    "text": "5.6.3 Do your engineers and QA's team look for potential security issues during release testing, and have they been trained to do so?",
+                    "choices": [{
+                        "testing_qa_engineers_yes": "Yes, our QA process explicitly includes testing for security issues that might have been introduced in the new version."
+                    }, {
+                        "testing_qa_engineers_no": "No, we do not currently do any security testing in our QA processes."
+                    }],
+                    "type": "radiogroup",
+                    "id": "testing_qa_engineers",
+                    "defaultChoice": false
+                }, {
+                    "text": "5.6.4 Post-Launch Monitoring",
+                    "type": "block",
+                    "id": "block_post_launch_monitoring",
+                    "items": [{
+                        "text": "5.6.4.1 How would you describe your post-launch monitoring?",
+                        "choices": [{
+                            "warn_application_monitoring_robust": "<b>Robust</b>: We have procedures in place to log and monitor for unexpected crashes, exceptions, and other error conditions. If something looks suspicious, a security-conscious engineer evaluates it."
+                        }, {
+                            "warn_application_monitoring_weak": "<b>Weak</b>: If something goes terribly wrong, such as massive spikes in crash rates or other large-scale anomalies, we will probably notice. But our monitoring is fairly coarse, and there is room for improvement."
+                        }, {
+                            "warn_application_monitoring_none": "<b>Nonexistent</b>: At the moment, we are not doing any kind of post-release monitoring that looks for signs of exploitation or increases in crashes/exceptions."
+                        }],
+                        "type": "radiogroup",
+                        "defaultChoice": false
+                    }]
+                }]
+            }]
+        }, {
+            "text": "6. Network",
+            "type": "block",
+            "id": "block_network",
+            "items": [{
+                "text": "6.1 Do you have written guidelines for configuration, maintenance and use of your network?",
+                "choices": [{
+                    "network_guidelines_yes": "We have clearly defined network guidelines, that are consistently applied across the network."
+                }, {
+                    "network_guidelines_no": "We don't currently have guidelines, or they're not consistently applied."
+                }],
+                "type": "radiogroup",
+                "id": "network_guidelines",
+                "defaultChoice": false
+            }, {
+                "text": "6.2 Do you regularly review your network guidelines, at least every 6 months?",
+                "choices": [{
+                    "network_guidelines_review_yes": "Yes"
+                }, {
+                    "network_guidelines_review_no": "No, we review them less frequently"
+                }],
+                "cond": "network_guidelines_yes",
+                "defaultChoice": false,
+                "type": "radiogroup",
+                "id": "network_guidelines_review"
+            }, {
+                "text": "6.3 Does your company use firewalls to restrict traffic into and out of your network at strategic points?",
+                "choices": [{
+                    "network_firewalls_yes": "Yes, we have firewalls for filtering all inbound and outbound traffic."
+                }, {
+                    "network_firewalls_no": "We do not use firewalls."
+                }],
+                "type": "radiogroup",
+                "id": "network_firewalls",
+                "defaultChoice": false
+            }, {
+                "text": "6.4 Is encryption and integrity protection (e.g. TLS, SMTPv3) in place for all internal network traffic that potentially carries sensitive information (including passwords, emails, files, source code, management traffic, etc.)?",
+                "choices": [{
+                    "network_encryption_yes": "Yes."
+                }, {
+                    "network_encryption_no": "Some unecnyrpted protocols may carry sensitive information."
+                }],
+                "type": "radiogroup",
+                "id": "network_encryption",
+                "defaultChoice": false
+            }, {
+                "cond": "network_encryption_no",
+                "items": [{
+                    "text": "6.5.1 Select the purposes for which you're using unencrypted networking protocols:",
+                    "choices": [{
+                        "network_encryption_protocols_management": "Device management (e.g., telnet, writable SNMP, plain-text HTTP, etc.)"
+                    }, {
+                        "network_encryption_protocols_monitoring": "Monitoring (e.g., read-only SNMP, plain-text HTTP, etc.)"
+                    }, {
+                        "network_encryption_protocols_filetransfer": "File transfer (e.g., NFS, plain-text WebDAV, etc.)"
+                    }, {
+                        "network_encryption_protocols_other": "Other"
+                    }],
+                    "type": "checkgroup",
+                    "defaultChoice": false
+                }, {
+                    "text": "6.5.2 Describe the unencrypted protocols that might carry sensitive information. Explain why these protocols cannot be replaced by encrypted variants, and what measures you have taken to ensure that these protocols cannot be used to endanger our confidential information.",
+                    "type": "box",
+                    "id": "network_unencrypted_protocols"
+                }, {
+                    "text": "6.5.3 Do you have controls in place to protect your systems from <a href='http://en.wikipedia.org/wiki/ARP_spoofing'>ARP spoofing</a>?",
+                    "choices": [{
+                        "network_arpspoofing_yes": "Yes, our switches protect against ARP spoofing, and where this feature is not available, we monitor for spoofed ARP packets in order to quickly identify attacks."
+                    }, {
+                        "network_arpspoofing_no": "Not all of our network zones are protected against ARP spoofing."
+                    }],
+                    "type": "radiogroup",
+                    "id": "network_arpspoofing",
+                    "defaultChoice": false
+                }, {
+                    "text": "6.5.4 Do you have a separate management network for managing network devices?",
+                    "choices": [{
+                        "network_management_segment_yes": "Yes, management of networking devices is done through a separate network with strong access restrictions (e.g., 802.1x, or additional physical security for ports that allow access to the management network). All management interfaces of networking devices are only accessible from the management network."
+                    }, {
+                        "network_management_segment_no": "No, management interfaces for networking devices are accessible from the regular network."
+                    }],
+                    "cond": "network_encryption_protocols_management",
+                    "defaultChoice": false,
+                    "type": "radiogroup",
+                    "id": "network_management_segment"
+                }],
+                "type": "block",
+                "id": "block_plaintext",
+                "text": "6.5 Compensating Controls for Plain-Text Protocols"
+            }, {
+                "text": "6.6 Do you operate wireless networks that allow access to private aspects of your infrastructure (i.e., Wi-Fi networks, excluding networks that only allow guests access to the Internet)?",
+                "choices": [{
+                    "network_wifi_yes": "Yes."
+                }, {
+                    "network_wifi_no": "No, we only have Wi-Fi networks that allow guests to access the Internet; they don't have access to any private aspects of our infrastructure."
+                }],
+                "type": "radiogroup",
+                "id": "network_wifi",
+                "defaultChoice": false
+            }, {
+                "cond": "network_wifi_yes",
+                "items": [{
+                    "text": "6.7.1 How are your wireless networks encrypted? (If you have multiple Wi-Fi networks, choose the weakest encryption that gives access to an internal network.)",
+                    "choices": [{
+                        "network_wifi_enc_no": "No encryption"
+                    }, {
+                        "network_wifi_enc_wep": "WEP"
+                    }, {
+                        "network_wifi_enc_wpapsk": "WPA/WPA2 with a preshared key (WPA[2]-PSK)"
+                    }, {
+                        "network_wifi_enc_wpaenterprise": "WPA/WPA2 with RADIUS authentication (WPA[2]-Enterprise)"
+                    }],
+                    "type": "radiogroup",
+                    "defaultChoice": false
+                }],
+                "type": "block",
+                "id": "block_wifi",
+                "text": "6.7 Wireless Networking"
+            }, {
+                "text": "6.8 Do you operate a VPN that allows remote access to your network?",
+                "choices": [{
+                    "network_vpn_yes": "Yes"
+                }, {
+                    "network_vpn_no": "No"
+                }],
+                "type": "radiogroup",
+                "id": "network_vpn",
+                "defaultChoice": false
+            }, {
+                "cond": "network_vpn_yes",
+                "items": [{
+                    "text": "6.9.1 How is access to the VPN authenticated? (Check all that apply.)",
+                    "choices": [{
+                        "network_vpn_auth_pwd": "Username and password"
+                    }, {
+                        "network_vpn_auth_machine_cert_os": "Machine certificate, stored by the operating system or on the file system"
+                    }, {
+                        "network_vpn_auth_machine_cert_tpm": "Machine certificate, stored in a Trusted Platform Module (TPM)"
+                    }, {
+                        "network_vpn_auth_2nd_factor": "Second factor (e.g., token)"
+                    }],
+                    "type": "checkgroup",
+                    "defaultChoice": false
+                }, {
+                    "text": "6.9.2 Is it possible for devices that are not owned and managed by your company to connect to your internal network remotely through VPN?",
+                    "choices": [{
+                        "network_vpn_noncorp_yes": "Yes."
+                    }, {
+                        "network_vpn_noncorp_policy": "No, this is prohibited by policy."
+                    }, {
+                        "network_vpn_noncorp_technical": "No, this is prevented by technical measures."
+                    }],
+                    "type": "radiogroup",
+                    "defaultChoice": false
+                }],
+                "type": "block",
+                "id": "block_vpn",
+                "text": "6.9 VPN/Remote Network Access"
+            }, {
+                "text": "6.10 Is the management of your network (or parts thereof) outsourced?",
+                "choices": [{
+                    "network_outsourced_yes": "Yes"
+                }, {
+                    "network_outsourced_no": "No"
+                }],
+                "type": "radiogroup",
+                "id": "network_outsourced",
+                "defaultChoice": false
+            }, {
+                "cond": "network_outsourced_yes",
+                "type": "line",
+                "id": "network_outsourced_company",
+                "text": "6.11 What company is network management outsourced to?"
+            }, {
+                "text": "6.12 Do you regularly audit your outsourcing provider to ensure compliance with the policies you set, and the use of safe security practices?",
+                "choices": [{
+                    "network_outsourced_audits_yes": "Yes"
+                }, {
+                    "network_outsourced_audits_no": "No"
+                }],
+                "cond": "network_outsourced_yes",
+                "defaultChoice": false,
+                "type": "radiogroup",
+                "id": "network_outsourced_audits"
+            }, {
+                "text": "6.13 Do you have any other comments about the security of your network? If yes, please provide them below:",
+                "type": "box",
+                "id": "network_other"
+            }]
+        }, {
+            "text": "7. Servers",
+            "type": "block",
+            "id": "block_servers",
+            "items": [{
+                "text": "7.1 Do you have operating system hardening in place, or build standards for server systems?",
+                "choices": [{
+                    "servers_hardening_yes": "Yes, all of our servers are configured according to these standards."
+                }, {
+                    "servers_hardening_no": "We do not have these standards, or we don't apply them uniformly across the fleet."
+                }],
+                "type": "radiogroup",
+                "id": "servers_hardening",
+                "defaultChoice": false
+            }, {
+                "text": "7.2 Are your systems configured to log security-relevant events, such as authentication, data access, etc.?",
+                "choices": [{
+                    "servers_logging_yes": "Yes, we have comprehensive logging, including security events, for all relevant services."
+                }, {
+                    "servers_logging_no": "No, our logging is basic or incidental."
+                }],
+                "type": "radiogroup",
+                "id": "servers_logging",
+                "defaultChoice": false
+            }, {
+                "text": "7.3 Administrative Access",
+                "type": "block",
+                "id": "block_admin_access",
+                "items": [{
+                    "text": "7.3.1 Select the operating systems that are currently in use on your servers:",
+                    "choices": [{
+                        "servers_admin_windows": "Microsoft Windows"
+                    }, {
+                        "servers_admin_unix": "Unix (including Linux, Solaris, etc.)"
+                    }],
+                    "type": "checkgroup",
+                    "defaultChoice": false
+                }, {
+                    "cond": "servers_admin_windows",
+                    "items": [{
+                        "text": "7.3.2.1 Do your Windows domain administrators have separate accounts with lower privileges that they use for day-to-day tasks?",
+                        "choices": [{
+                            "servers_admin_windows_da_accounts_yes": "Yes. Our domain administrators use their highly privileged accounts only when necessary. For day-to-day tasks, they use regular accounts with fewer privileges."
+                        }, {
+                            "servers_admin_windows_da_accounts_no": "No, our domain administrators are usually logged in with their domain-admin accounts for day-to-day work."
+                        }],
+                        "type": "radiogroup",
+                        "id": "servers_admin_windows_da_accounts",
+                        "defaultChoice": false
+                    }],
+                    "type": "block",
+                    "text": "7.3.2 Windows Server Administration"
+                }, {
+                    "cond": "servers_admin_unix",
+                    "items": [{
+                        "text": "7.3.3.1 Do your administrators have personal user accounts and use sudo when elevated privileges are necessary?",
+                        "choices": [{
+                            "servers_admin_linux_sudo_yes": "Yes, our administrators use sudo (or a similar tool)."
+                        }, {
+                            "servers_admin_linux_sudo_no": "No, our administrators know the root password and log in as root when they need to make changes that require elevated privileges."
+                        }],
+                        "type": "radiogroup",
+                        "id": "servers_admin_linux_sudo",
+                        "defaultChoice": false
+                    }, {
+                        "text": "7.3.3.2 Where is the root password kept?",
+                        "choices": [{
+                            "servers_admin_linux_root_yes": "We keep the root password in a secure location (e.g., in an envelope in a safe). It is retrieved only when absolutely necessary. Processes are in place to ensure accountability, and the password is changed after every use."
+                        }, {
+                            "servers_admin_linux_root_no": "We are not quite that protective of root passwords."
+                        }],
+                        "cond": "servers_admin_linux_sudo_yes",
+                        "defaultChoice": false,
+                        "type": "radiogroup",
+                        "id": "servers_admin_linux_root"
+                    }, {
+                        "text": "7.3.3.3 Are your *nix systems connected to a central directory for managing access (e.g., LDAP)?",
+                        "choices": [{
+                            "servers_admin_linux_ldap_yes": "Yes. It's easy for us to centrally disable accounts."
+                        }, {
+                            "servers_admin_linux_ldap_no": "No, we create individual accounts separately on each of our *nix servers."
+                        }],
+                        "type": "radiogroup",
+                        "id": "servers_admin_linux_ldap",
+                        "defaultChoice": false
+                    }],
+                    "type": "block",
+                    "id": "block_unix_linux_admin",
+                    "text": "7.3.3 Unix/Linux Server Administration"
+                }, {
+                    "text": "7.3.4 Do you have procedures in place for regularly auditing administrative access to your servers?",
+                    "choices": [{
+                        "servers_admin_auditing_yes": "Yes, we review the actions our administrators take to make sure we catch issues, such as a compromised account."
+                    }, {
+                        "servers_admin_auditing_no": "No, we generally don't audit administrative access unless prompted by an issue."
+                    }],
+                    "type": "radiogroup",
+                    "id": "servers_admin_auditing",
+                    "defaultChoice": false
+                }]
+            }, {
+                "text": "7.4 Backups",
+                "type": "block",
+                "id": "block_backups",
+                "items": [{
+                    "text": "7.4.1 Do you sync data to a different site in near real time?",
+                    "choices": [{
+                        "servers_backup_dcsync_yes": "Backups are synced in near real time incase of a disaster."
+                    }, {
+                        "servers_backup_dcsync_no": "Backups are regularly tested, including restoring incremental and full system restores."
+                    }],
+                    "type": "radiogroup",
+                    "id": "servers_backup_dcsync",
+                    "defaultChoice": false
+                }]
+            }]
+        }, {
+            "text": "8. Email",
+            "type": "block",
+            "id": "block_email",
+            "items": [{
+                "text": "8.1 Do you use third-party (e.g. hosted email, email marketing services, etc.) email providers?",
+                "choices": [{
+                    "servers_email_third_party_yes": "Yes, we use a third-party email provider for some or all of our email."
+                }, {
+                    "servers_email_third_party_no": "No, we use our own internal email infrastructure (e.g. Microsoft Exchange) for all of our email."
+                }],
+                "type": "radiogroup",
+                "id": "servers_email_third_party",
+                "defaultChoice": false
+            }, {
+                "text": "8.2 Which of the following security controls do you use to protect against spoofed or forged emails on the domains you own and use?",
+                "choices": [{
+                    "email_security_spf_policy": "Restricted <a href=\"https://en.wikipedia.org/wiki/Sender_Policy_Framework\">Sender Policy Framework (SPF)</a> policies (i.e. the fewest hosts possible are allowed with a default SOFTFAIL or FAIL qualifier)."
+                }, {
+                    "email_security_dkim": "<a href=\"https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail\">DomainKeys Identified Mail (DKIM)</a> email authentication."
+                }, {
+                    "email_security_dmarc": "<a href=\"https://en.wikipedia.org/wiki/DMARC\">Domain-based Message Authentication, Reporting and Conformance (DMARC)</a> email validation."
+                }],
+                "type": "checkgroup",
+                "defaultChoice": false
+            }, {
+                "text": "8.3 Does your inbound email infrastructure support Transport Layer Security (TLS) 1.2 with cipher suites with <a href=\"https://en.wikipedia.org/wiki/Forward_secrecy\">forward secrecy</a> (e.g. ECDHE)?",
+                "choices": [{
+                    "servers_email_inbound_tls_yes": "Yes, our inbound SMTP servers support at least TLS 1.2 and cipher suites with forward secrecy for all inbound email."
+                }, {
+                    "servers_email_inbound_tls_no": "No, our inbound SMTP servers do not support encryption or do not meet this level of encryption in transit."
+                }],
+                "type": "radiogroup",
+                "id": "servers_email_inbound_tls",
+                "defaultChoice": false
+            }, {
+                "text": "8.4 Does your outbound email infrastructure use <a href=\"https://en.wikipedia.org/wiki/Opportunistic_TLS\">Opportunistic TLS (STARTTLS)</a> to request remote servers upgrade to an encrypted connection?",
+                "choices": [{
+                    "servers_email_outbound_starttls_yes": "Yes, our outbound SMTP servers will upgrade to an encrypted connection if the STARTTLS extension is available."
+                }, {
+                    "servers_email_outbound_starttls_no": "No, our outbound SMTP servers do not support STARTTLS."
+                }],
+                "type": "radiogroup",
+                "id": "servers_email_outbound_starttls",
+                "defaultChoice": false
+            }]
+        }, {
+            "text": "9. Endpoints (Work Stations, Laptops, etc.)",
+            "type": "block",
+            "id": "block_clients",
+            "items": [{
+                "text": "9.1 Do you harden or have build standards for operating systems on end points?",
+                "choices": [{
+                    "clients_hardening_yes": "Yes."
+                }, {
+                    "clients_hardening_no": "No."
+                }],
+                "type": "radiogroup",
+                "id": "clients_hardening",
+                "defaultChoice": false
+            }, {
+                "text": "9.2 Do you have controls in place to protect client systems from malware? Including Mac OS and Windows",
+                "choices": [{
+                    "clients_av_mac": "Mac"
+                }, {
+                    "clients_av_windows": "Windows"
+                }],
+                "type": "checkgroup",
+                "id": "clients_av",
+                "defaultChoice": false
+            }, {
+                "text": "9.3 What level of access do regular users have on their workstation/laptop?",
+                "choices": [{
+                    "clients_admin_restricted_yes": "Regular users have (unprivileged) user access on their machines. We have a process in place for granting local administrative access to users who demonstrate a clear need."
+                }, {
+                    "clients_admin_restricted_no": "Users are local administrators on their machines."
+                }],
+                "type": "radiogroup",
+                "id": "clients_admin_restricted",
+                "defaultChoice": false
+            }, {
+                "text": "9.4 Do all clients use the same local administrator/root password?",
+                "choices": [{
+                    "clients_admin_samepassword_yes": "Yes, the local root or administrator password is the same for all (or many) client systems."
+                }, {
+                    "clients_admin_samepassword_no": "No, local Administrator/root accounts are disabled, or a different password is set for all machines."
+                }],
+                "type": "radiogroup",
+                "id": "clients_admin_samepassword",
+                "defaultChoice": false
+            }, {
+                "text": "9.5 Does your company only use Windows 7 and above?",
+                "choices": [{
+                    "clients_early_windows_yes": "Yes, all of our windows endpoints run Windows 7 and above."
+                }, {
+                    "clients_early_windows_no": "No, some of our windows endpoints run legacy operating systems such as Vista or XP."
+                }],
+                "type": "radiogroup",
+                "id": "clients_early_windows",
+                "defaultChoice": false
+            }, {
+                "text": "9.6 Do you fully encrypt the hard disks of laptops and other portable client devices?",
+                "choices": [{
+                    "clients_laptops_hd_encrypted_yes": "Yes, we use full-disk encryption for our laptop fleet."
+                }, {
+                    "clients_laptops_hd_encrypted_no": "No, laptop hard disks are not fully encrypted. Users are responsible for protecting sensitive information on laptops."
+                }],
+                "type": "radiogroup",
+                "id": "clients_laptops_hd_encrypted",
+                "defaultChoice": false
+            }]
+        }, {
+            "text": "10. Patching",
+            "type": "block",
+            "id": "block_patching",
+            "items": [{
+                "text": "10.1 Emergency process for installing patches outside of the regular schedule when high-risk vulnerabilities are identified are defined for:",
+                "choices": [{
+                    "emerg_patch_network": "Network Devices"
+                }, {
+                    "emerg_patch_servers": "Servers"
+                }, {
+                    "emerg_patch_endpoints": "Endpoints"
+                }],
+                "type": "checkgroup",
+                "defaultChoice": false
+            }, {
+                "text": "10.2 How do you know whether your systems are affected by vulnerabilities that require patching? (Check all that apply.)",
+                "choices": [{
+                    "vuln_patch_1": "We run agents on our client systems to discover what software is installed and report that information back to a central repository."
+                }, {
+                    "vuln_patch_2": "The employees who are responsible for patching subscribe to vendor mailing lists that inform them about security issues."
+                }, {
+                    "vuln_patch_3": "We use the patching mechanisms built into the operating systems (e.g. Windows Update, apt-get, Red Hat Network, etc.)."
+                }, {
+                    "vuln_patch_4": "We hired a company that specializes in informing customers about vulnerabilities in the software they use."
+                }],
+                "type": "checkgroup",
+                "defaultChoice": false
+            }]
+        }, {
+            "text": "11. Monitoring",
+            "type": "block",
+            "id": "block_monitoring",
+            "items": [{
+                "text": "11.1 Please detail what monitoring you have in place:",
+                "choices": [{
+                    "monitoring_1": "Monitoring is in place for availability of network devices and servers"
+                }, {
+                    "monitoring_2": "Monitoring is in place for security events on network devices, servers and endpoints"
+                }, {
+                    "monitoring_3": "Logs produced by networking devices and servers are monitored regularly"
+                }, {
+                    "monitoring_4": "Logs are stored in a central location"
+                }],
+                "type": "checkgroup",
+                "defaultChoice": false
+            }]
+        }, {
+            "text": "12. Technical Security Testing",
+            "type": "block",
+            "id": "block_security_testing",
+            "items": [{
+                "text": "12.1 Does an independent third party regularly perform penetration tests on all systems used to provide services to customers?",
+                "choices": [{
+                    "testing_pentests_yes": "Yes."
+                }, {
+                    "testing_pentests_no": "No, we rarely or never have independent third parties do penetration tests."
+                }],
+                "type": "radiogroup",
+                "id": "testing_pentests",
+                "defaultChoice": false
+            }, {
+                "cond": "testing_pentests_yes",
+                "items": [{
+                    "text": "12.2.1 Describe the scope of the penetration tests (in terms of both depth and width) and how the tests are applied to the systems used to provide services to customers.",
+                    "type": "box",
+                    "id": "testing_pentests_scope"
+                }, {
+                    "text": "12.2.2 Many vulnerabilities cannot be found by automated scanners. Do the penetration tests include manual security testing?",
+                    "choices": [{
+                        "testing_pentests_manual_yes": "Yes, the experts we hire use both automated and manual testing methods."
+                    }, {
+                        "testing_pentests_manual_no": "No, the penetration testing is fully automated."
+                    }],
+                    "type": "radiogroup",
+                    "id": "testing_pentests_manual",
+                    "defaultChoice": false
+                }, {
+                    "text": "12.2.3 What company/companies did you use for the three most recent penetration tests?",
+                    "type": "line",
+                    "id": "testing_pentests_companies"
+                }, {
+                    "text": "12.2.4 How often (on average) are penetration tests done for the scope you described?",
+                    "choices": [{
+                        "testing_pentests_freq_often": "Multiple times per year."
+                    }, {
+                        "testing_pentests_freq_annually": "Annually."
+                    }, {
+                        "testing_pentests_freq_rarely": "Less frequently."
+                    }],
+                    "type": "radiogroup",
+                    "defaultChoice": false
+                }, {
+                    "text": "12.2.5 Are you willing to share a management summary of the most recent penetration testing reports?",
+                    "choices": [{
+                        "testing_pentests_sharesummary_yes": "Yes, if this helps to accelerate the partner audit process, we're willing to share them under NDA."
+                    }, {
+                        "testing_pentests_sharesummary_no": "No, this information is considered confidential and is not shared even under NDA."
+                    }],
+                    "type": "radiogroup",
+                    "id": "testing_pentests_sharesummary",
+                    "defaultChoice": false
+                }],
+                "type": "block",
+                "id": "block_3rd_party_pentests",
+                "text": "12.2 3rd Party Penetration Tests"
+            }, {
+                "text": "12.3 Are all of the systems used in this project scanned for host-level vulnerabilities? (<i>Note</i>: This question does <i>not</i> refer to anti-malware scans. Instead, it refers to scans that look for known vulnerabilities and misconfiguration of the software running on servers.)",
+                "choices": [{
+                    "testing_scans_yes": "Yes"
+                }, {
+                    "testing_scans_no": "No"
+                }],
+                "type": "radiogroup",
+                "id": "testing_scans",
+                "defaultChoice": false
+            }, {
+                "cond": "testing_scans_yes",
+                "items": [{
+                    "text": "12.4.1 What software or company do you use for vulnerability scans?",
+                    "type": "line",
+                    "id": "testing_scans_software"
+                }, {
+                    "text": "12.4.2 How often do you run vulnerability scans?",
+                    "choices": [{
+                        "testing_scans_monthly": "Once per month or more often"
+                    }, {
+                        "testing_scans_quarterly": "Once per quarter"
+                    }, {
+                        "testing_scans_rarely": "Less frequently"
+                    }],
+                    "type": "radiogroup",
+                    "defaultChoice": false
+                }, {
+                    "text": "12.4.3 Which systems are covered by the security scans?",
+                    "choices": [{
+                        "testing_scans_intext_yes": "Both internal systems and externally exposed systems are regularly scanned."
+                    }, {
+                        "testing_scans_intext_no": "Our scans cover only those systems that are exposed on the Internet."
+                    }],
+                    "type": "radiogroup",
+                    "id": "testing_scans_intext",
+                    "defaultChoice": false
+                }],
+                "type": "block",
+                "id": "block_security_scanning",
+                "text": "12.4 Security Scanning"
+            }, {
+                "text": "12.5 In addition to third-party penetration tests and security scans, do you have security know-how internally, and do you use that know-how to conduct in-house security testing?",
+                "choices": [{
+                    "testing_inhouse_yes": "Yes, our security team does technical security reviews of the systems used for this project."
+                }, {
+                    "testing_inhouse_no": "No, we don't do in-house security testing."
+                }],
+                "type": "radiogroup",
+                "id": "testing_inhouse",
+                "defaultChoice": false
+            }, {
+                "cond": "testing_inhouse_yes",
+                "items": [{
+                    "text": "12.6.1 What kinds of security testing and security reviews are done internally?",
+                    "choices": [{
+                        "testing_inhouse_pentestext": "Red-team-style penetration tests of externally exposed systems."
+                    }, {
+                        "testing_inhouse_pentestint": "Red-team-style penetration tests of internal systems."
+                    }, {
+                        "testing_inhouse_blackbox": "Black-box security testing of software developed internally."
+                    }, {
+                        "testing_inhouse_codereviews": "Security code reviews of software developed internally."
+                    }, {
+                        "testing_inhouse_designreviews": "Security design reviews of software developed internally."
+                    }, {
+                        "testing_inhouse_other": "Other kinds of testing."
+                    }],
+                    "type": "checkgroup",
+                    "defaultChoice": false
+                }, {
+                    "cond": "testing_inhouse_other",
+                    "type": "box",
+                    "id": "testing_inhouse_other_details",
+                    "text": "12.6.2 Describe the other kinds of testing your security team is conducting."
+                }, {
+                    "cond": "testing_inhouse_pentestext || testing_inhouse_pentestint || testing_inhouse_blackbox || testing_inhouse_codereviews || testing_inhouse_other || testing_inhouse_designreviews",
+                    "type": "line",
+                    "id": "testing_inhouse_fte",
+                    "text": "12.6.3 Approximately how many FTE (full-time equivalents) are working on this kind of testing?"
+                }],
+                "type": "block",
+                "id": "block_inhouse_testing",
+                "text": "12.6 In-house Security Testing/Reviews"
+            }, {
+                "text": "12.7 Is there anything else you want us to know about the security testing of your infrastructure and/or product?",
+                "type": "box",
+                "id": "testing_other"
+            }]
+        }, {
+            "text": "13. Security at the Office",
+            "type": "block",
+            "id": "block_office_security",
+            "items": [{
+                "text": "13.1 <b>Note:</b> If you have multiple offices with network-level access to systems or data containing confidential information, answer the following questions for the office with the fewest physical controls (the weakest link).",
+                "type": "info"
+            }, {
+                "text": "13.2 Are all facilities used exclusively by your company, or are some shared?",
+                "choices": [{
+                    "office_facilities_excl_yes": "Yes, we are the only tenant of the facilities."
+                }, {
+                    "office_facilities_excl_no": "No, some or all of the facilities are shared with other companies."
+                }, {
+                    "office_facilities_home": "We don't have offices; everyone works from home."
+                }],
+                "type": "radiogroup",
+                "id": "office_facilities_excl",
+                "defaultChoice": false
+            }, {
+                "cond": "office_facilities_home",
+                "type": "box",
+                "id": "office_home_device_mgmt",
+                "text": "13.3 How do you manage your employees' devices, considering everyone works from home? Are they centrally managed?"
+            }, {
+                "cond": "office_facilities_excl_no",
+                "type": "box",
+                "id": "office_facilities_separation",
+                "text": "13.4 How is your physical area separated from other areas of the office facility? Explain how you control access to your area (e.g., door with swipe card and a receptionist)."
+            }, {
+                "text": "13.5 Does your company review the physical and environmental risks that your office facilities are exposed to, and do you have procedures in place to evaluate and, if necessary, address them?",
+                "choices": [{
+                    "office_ra_yes": "Yes, we do risk assessments to proactively identify risks related to physical and environmental security."
+                }, {
+                    "office_ra_no": "No, we don't review physical and environmental risks."
+                }],
+                "cond": "!office_facilities_home",
+                "defaultChoice": false,
+                "type": "radiogroup",
+                "id": "office_ra"
+            }, {
+                "cond": "office_facilities_excl_no",
+                "choices": [{
+                    "office_controls_receptionist": "Staffed reception desk"
+                }, {
+                    "office_controls_guards_shared": "Guards (shared by entire building)"
+                }, {
+                    "office_controls_guards_exclusive": "Guards (hired by and for your company specifically)"
+                }, {
+                    "office_controls_motion_detectors": "Motion detectors"
+                }, {
+                    "office_controls_alarms": "Alarms"
+                }, {
+                    "office_controls_cctv": "CCTV"
+                }, {
+                    "office_controls_swipe_cards": "Electronic access control (e.g., swipe cards)"
+                }, {
+                    "office_controls_perimeter_security": "Perimeter security"
+                }],
+                "defaultChoice": false,
+                "type": "checkgroup",
+                "text": "13.6 Select the security controls that are in place at <i>all</i> of your offices:"
+            }, {
+                "text": "13.7 Do you have a written policy that lists the physical security requirements for office facilities?",
+                "choices": [{
+                    "office_policy_yes": "Yes"
+                }, {
+                    "office_policy_no": "No"
+                }],
+                "cond": "!office_facilities_home",
+                "defaultChoice": false,
+                "type": "radiogroup",
+                "id": "office_policy"
+            }, {
+                "cond": "office_controls_swipe_cards",
+                "items": [{
+                    "text": "13.8.1 Do you have an auditable process in place for granting and revoking physical access to office facilities?",
+                    "choices": [{
+                        "office_access_yes": "Yes"
+                    }, {
+                        "office_access_no": "No"
+                    }],
+                    "type": "radiogroup",
+                    "id": "office_access",
+                    "defaultChoice": false
+                }, {
+                    "text": "13.8.2 Are physical entry logs kept for at least six months?",
+                    "choices": [{
+                        "office_acclogs_yes": "Yes"
+                    }, {
+                        "office_acclogs_no": "No"
+                    }],
+                    "cond": "!office_facilities_home",
+                    "defaultChoice": false,
+                    "type": "radiogroup",
+                    "id": "office_acclogs"
+                }, {
+                    "cond": "!office_facilities_home",
+                    "items": [{
+                        "text": "13.8.3.1 How often do you review physical entry logs?",
+                        "choices": [{
+                            "office_acclogs_review_never": "Never"
+                        }, {
+                            "office_acclogs_review_quarterly": "Every couple of months"
+                        }, {
+                            "office_acclogs_review_monthly": "Once per month"
+                        }, {
+                            "office_acclogs_review_often": "More often"
+                        }],
+                        "type": "radiogroup",
+                        "defaultChoice": false
+                    }],
+                    "type": "block",
+                    "id": "block_entry_log_review",
+                    "text": "13.8.3 Entry Log Review"
+                }],
+                "type": "block",
+                "id": "block_access_control",
+                "text": "13.8 Access Control"
+            }, {
+                "text": "13.9 Offices need a lot of networking equipment. If an attacker manages to gain access to such equipment, they could, for example, do a man-in-the-middle attack for all office traffic. It's important to protect access to network equipment like floor distributor switches, office routers, wireless APs, etc.",
+                "choices": [{
+                    "office_network_room_yes": "All of these are well protected and locked away. Only a few IT employees have physical access to networking equipment."
+                }, {
+                    "office_network_room_no": "We don't protect access to office networking equipment."
+                }],
+                "cond": "!office_facilities_home",
+                "defaultChoice": false,
+                "type": "radiogroup",
+                "id": "office_network_room"
+            }, {
+                "text": "13.10 Is there anything else you want us to know about the physical security at your office?",
+                "type": "box",
+                "id": "office_other"
+            }]
+        }, {
+            "text": "14. Data Center Security",
+            "type": "block",
+            "items": [{
+                "text": "14.1 How many data centers will (potentially) be used to store confidential data?",
+                "type": "line",
+                "id": "dc_howmany"
+            }, {
+                "text": "14.2 List all countries where data centers are located:",
+                "type": "line",
+                "id": "dc_countries"
+            }, {
+                "text": "14.3 Do you use Google Cloud, Amazon Web Services, or a similar outsourced, virtual-machine-based data center?",
+                "choices": [{
+                    "dc_outsourced_yes": "Yes."
+                }, {
+                    "dc_outsourced_no": "No, we maintain our own data centers."
+                }],
+                "type": "checkgroup",
+                "id": "dc_outsourced",
+                "defaultChoice": false
+            }, {
+                "cond": "dc_outsourced_yes",
+                "type": "line",
+                "id": "dc_provider",
+                "text": "14.4 Who is your data center provider?"
+            }, {
+                "cond": "dc_outsourced_no",
+                "items": [{
+                    "text": "14.5.1 Are all facilities used exclusively by your company, or are some shared?",
+                    "choices": [{
+                        "dc_facilities_excl_yes": "Yes, we are the only user of all data centers that potentially store confidential data."
+                    }, {
+                        "dc_facilities_excl_no": "No, some or all of the facilities are shared with other companies."
+                    }],
+                    "type": "radiogroup",
+                    "id": "dc_facilities_excl",
+                    "defaultChoice": false
+                }, {
+                    "cond": "dc_facilities_excl_no",
+                    "type": "box",
+                    "id": "dc_facilities_equipment_separated",
+                    "text": "14.5.2 How is your equipment separated from other users of the facility?"
+                }, {
+                    "text": "14.5.3 Are the data centers categorized in tiers or certified in some way (e.g., TIA-942, ISO 27001, SSAE-16, etc.)? If yes, list the tiers/certifications:",
+                    "type": "line",
+                    "id": "dc_certifications"
+                }, {
+                    "text": "14.5.4 Do you have a written policy that lists the physical security requirements for data centers?",
+                    "choices": [{
+                        "dc_policy_yes": "Yes"
+                    }, {
+                        "dc_policy_no": "No"
+                    }],
+                    "type": "radiogroup",
+                    "id": "dc_policy",
+                    "defaultChoice": false
+                }, {
+                    "text": "14.5.5 Select the security controls that are in place at <i>all</i> of your data centers:",
+                    "choices": [{
+                        "dc_controls_guards": "Guards"
+                    }, {
+                        "dc_controls_mantrap": "Mantrap"
+                    }, {
+                        "dc_controls_motiondetectors": "Motion detectors"
+                    }, {
+                        "dc_controls_alarms": "Alarms"
+                    }, {
+                        "dc_controls_cctv": "CCTV"
+                    }, {
+                        "dc_controls_electronic_access_control": "Electronic access control (e.g., swipe cards)"
+                    }, {
+                        "dc_controls_perimetersec": "Perimeter security"
+                    }],
+                    "type": "checkgroup",
+                    "defaultChoice": false
+                }, {
+                    "choices": [{
+                        "dc_controls_ups": "UPS batteries"
+                    }, {
+                        "dc_controls_generator": "Backup generators"
+                    }, {
+                        "dc_controls_water_detection": "Water detection system"
+                    }, {
+                        "dc_controls_fire_detection": "Fire detection system"
+                    }, {
+                        "dc_controls_fire_suppression_gas": "Gas-based fire suppression system"
+                    }, {
+                        "dc_controls_fire_suppression_water": "Water-based fire suppression system"
+                    }],
+                    "type": "checkgroup",
+                    "defaultChoice": false
+                }, {
+                    "text": "Are all of the controls you selected above tested at least annually?",
+                    "choices": [{
+                        "dc_testing_yes": "Yes"
+                    }, {
+                        "dc_testing_no": "No"
+                    }],
+                    "type": "radiogroup",
+                    "id": "dc_testing",
+                    "defaultChoice": false
+                }, {
+                    "text": "Do all data centers have monitoring and alerting in place for power supply, HVAC, and temperature?",
+                    "choices": [{
+                        "dc_monitoring_yes": "Yes"
+                    }, {
+                        "dc_monitoring_no": "No"
+                    }],
+                    "type": "radiogroup",
+                    "id": "dc_monitoring",
+                    "defaultChoice": false
+                }, {
+                    "cond": "dc_controls_electronic_access_control",
+                    "items": [{
+                        "text": "Do you have an auditable process in place for granting and revoking physical access to data centers?",
+                        "choices": [{
+                            "dc_access_yes": "Yes"
+                        }, {
+                            "dc_access_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "dc_access",
+                        "defaultChoice": false
+                    }, {
+                        "text": "Are physical entry logs kept for at least six months?",
+                        "choices": [{
+                            "dc_acclogs_yes": "Yes"
+                        }, {
+                            "dc_acclogs_no": "No"
+                        }],
+                        "type": "radiogroup",
+                        "id": "dc_acclogs",
+                        "defaultChoice": false
+                    }, {
+                        "text": "Entry Logs Review",
+                        "type": "block",
+                        "id": "block_entry_logs",
+                        "items": [{
+                            "text": "How often do you review physical entry logs?",
+                            "choices": [{
+                                "dc_acclogs_review_never": "Never"
+                            }, {
+                                "dc_acclogs_review_quarterly": "Every couple of months"
+                            }, {
+                                "dc_acclogs_review_monthly": "Once per month"
+                            }, {
+                                "dc_acclogs_review_often": "More often"
+                            }],
+                            "type": "radiogroup",
+                            "defaultChoice": false
+                        }]
+                    }],
+                    "type": "block",
+                    "id": "block_dc_access_control",
+                    "text": "Access Control"
+                }, {
+                    "text": "Even the most advanced and protected data centers have occasional outages. Depending on the availability requirements of your project, it might be necessary to quickly switch to another data center so that operations can be resumed without excessive downtime.",
+                    "choices": [{
+                        "dc_outage_yes": "We are able to quickly route traffic to another data center (within one hour)."
+                    }, {
+                        "dc_outage_no": "We would need more than one hour to resume our service in case of a data center outage."
+                    }],
+                    "type": "radiogroup",
+                    "id": "dc_outage",
+                    "defaultChoice": false
+                }, {
+                    "text": "Does your company review the physical and environmental risks that your data centers are exposed to, and do you have procedures in place to evaluate and, if necessary, address them?",
+                    "choices": [{
+                        "dc_ra_yes": "Yes, we do risk assessments or &mdash; if hosted with a colocation provider &mdash; review our provider's security practices."
+                    }, {
+                        "dc_ra_no": "No, we don't."
+                    }],
+                    "type": "radiogroup",
+                    "id": "dc_ra",
+                    "defaultChoice": false
+                }],
+                "type": "block",
+                "text": "14.5 Running Own Data Centers"
+            }, {
+                "text": "14.6 Is there anything else you want us to know about the security of your data centers?",
+                "type": "box",
+                "id": "dc_other"
+            }]
+        }, {
+            "text": "15. Feedback",
+            "type": "block",
+            "id": "block_feedback",
+            "items": [{
+                "text": "15.1 <b>Good news!</b> You have made it to the end of this questionnaire. If you can spare another minute, please let us know how we can improve it. Any feedback is highly appreciated.",
+                "type": "box",
+                "id": "feedback"
+            }]
+        }]
+    }]
+}

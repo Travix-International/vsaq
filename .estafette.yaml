@@ -1,0 +1,24 @@
+labels:
+  app: vsaq
+  team: security
+  language: js
+
+stages:
+  build:
+    image: travix/vsaq
+    shell: /bin/bash
+    commands:
+    - bash do.sh install_deps
+    - bash do.sh check_deps
+    - bash do.sh build
+    - bash do.sh build_prod
+
+
+  deploy:
+    image: extensions/gcs
+    credentials: travix-development
+    action: copy
+    source: 'build/'
+    bucket: vsaq.travix.com
+    destination: /
+
