@@ -135,7 +135,7 @@
                 }
               ],
               "type": "radiogroup",
-              "id": "two_one",
+              "id": "two_two",
               "defaultChoice": false
             },
             {
