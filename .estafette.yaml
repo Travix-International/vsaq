@@ -5,9 +5,9 @@ labels:
 
 stages:
   format:
-    image: extensions/docker:stable
+    image: docker run -i travix/yaml2json
     commands:
-    - cat questionnaires/travix_squad_12.yaml | docker run -i travix/yaml2json
+    - cat questionnaires/travix_squad_12.yaml | yaml-to-json
 
   build:
     image: travix/vsaq
