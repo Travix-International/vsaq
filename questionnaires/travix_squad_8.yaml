@@ -31,6 +31,13 @@ questionnaire:
             cond: two_one_yes
             type: box
             id: two_one_a
+          - text: 2.1.a.1 Is the 3rd party services protected and need authentication
+            cond: two_one_yes
+            choices:
+              - tw_o_a_o_yes: Yes
+              - tw_o_a_o_no: No
+            type: radiogroup
+            id: tw_o_a_o
           - text: 2.1.b What type of Authentications you use to call 3rd party services
             choices:
               - two_one_b_a: Apigee / OAuth
@@ -41,7 +48,7 @@ questionnaire:
               - two_one_b_f: Secret Key
               - two_one_b_g: Basic Auth (Username and Password)
               - two_one_b_h: Other
-            cond: two_one_yes
+            cond: tw_o_a_o_yes
             type: checkgroup
             id: two_one_b
             defaultChoice: false
