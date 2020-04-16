@@ -5,7 +5,7 @@ labels:
 
 stages:
   format:
-    image: docker run -i travix/yaml2json
+    image: travix/yaml2json
     commands:
     - cat questionnaires/travix_squad_12.yaml | yaml-to-json
 
