@@ -58,7 +58,7 @@ questionnaire:
               - two_one_d_e: MAAT / Database
               - two_one_d_f: Bitbucket Repository
               - two_one_d_h: Other
-            cond: tw_o_a_o_yes
+            cond: two_one_yes
             type: checkgroup
             id: two_one_d
             defaultChoice: false
