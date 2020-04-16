@@ -13,6 +13,7 @@ stages:
     image: travix/vsaq
     shell: /bin/bash
     commands:
+    - mv /vsaq/* .
     - bash do.sh build_prod
 
   deploy:
