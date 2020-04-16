@@ -74,10 +74,10 @@ questionnaire:
             type: box
             id: two_one_e
 #####################################################################
-      - text: 3. Third Party Integration (Intbound)
+      - text: 3. Third Party Integration (Inbound)
         required: true
         type: block
-        id: block_integration
+        id: block_integration_inbound
         items:
           - text: 3.1 Is any of your services get called by 3rd party services outside of Travix
             choices:
