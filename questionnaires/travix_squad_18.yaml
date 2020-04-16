@@ -138,17 +138,14 @@ questionnaire:
         type: block
         id: block_pii
         items:
-          - text: 3.1 Will you process or store any personal data of customers or
-              employees of Travix? This includes, but is not limited to names,
-              addresses, email addresses, passport information.
+          - text: 4.1 Will you process or store any personal data of customers of Travix? This includes, but is not limited to names, addresses, email addresses, passport information.
             choices:
               - pii_yes: Yes
               - pii_no: No
             type: radiogroup
             id: pii
             defaultChoice: false
-          - text: 3.2 Is all personal data you store encrypted at rest across all
-              systems that interact with the personal data?
+          - text: 4.2 Is all personal data you store encrypted across all systems that interact with the personal data?
             choices:
               - pii_encrypted_yes: Yes
               - pii_encrypted_no: No
@@ -156,18 +153,22 @@ questionnaire:
             defaultChoice: false
             type: radiogroup
             id: pii_encrypted
-          - text: 3.3 Please detail any systems that do not support encryption at
-              rest and compensating controls in place.
-            cond: pii_encrypted_no
-            type: box
-            id: pii_compensating_controls
-          - text: 3.4 Will Travix process or store any of your customer data?
+          - text: 4.3.a Where do you store the PII data
             choices:
-              - pii_travix_store_yes: Yes
-              - pii_travix_store_no: No
-            type: radiogroup
-            id: pii_travix_store
+              - 4_3_a_a: Database (MS SQL Cluster)
+              - 4_3_a_b: Database (GCP SQL)
+              - 4_3_a_c: GCP Bigtable/DataStore/Firestore/Filestore/Storage
+              - 4_3_a_d: Elasticsearch
+              - 4_3_a_h: Other
+            cond: pii_yes
+            type: checkgroup
+            id: 4_3_a
             defaultChoice: false
+          - text: 4.3.b Please list the Other places
+            cond: 4_3_a_h
+            type: box
+            id: 4_3_b
+#####################################################################            
       - text: 4. Information Security Program
         type: block
         id: block_security_program
