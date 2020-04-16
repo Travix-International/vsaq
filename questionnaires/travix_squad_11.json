@@ -50,19 +50,6 @@
               "id": "two_one_a"
             },
             {
-              "text": "2.1.a.1 Is the 3rd party services protected and need authentication",
-              "cond": "two_one_yes",
-              "choices": [
-                {
-                  "2.1.a.1.yes": "Yes"
-                },
-                {
-                  "2.1.a.1.no": "No"
-                }
-              ],
-              "id": "2.1.a.1"
-            },
-            {
               "text": "2.1.b What type of Authentications you use to call 3rd party services",
               "choices": [
                 {
@@ -90,7 +77,7 @@
                   "two_one_b_h": "Other"
                 }
               ],
-              "cond": "2.1.a.1.yes",
+              "cond": "two_one_yes",
               "type": "checkgroup",
               "id": "two_one_b",
               "defaultChoice": false
@@ -126,7 +113,7 @@
                   "two_one_d_h": "Other"
                 }
               ],
-              "cond": "2.1.a.1.yes",
+              "cond": "two_one_yes",
               "type": "checkgroup",
               "id": "two_one_d",
               "defaultChoice": false

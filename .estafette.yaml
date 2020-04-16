@@ -4,13 +4,15 @@ labels:
   language: js
 
 stages:
+  format:
+    image: extensions/docker:stable
+    commands:
+    - cat questionnaires/travix_squad_12.yaml | docker run -i travix/yaml2json
+
   build:
     image: travix/vsaq
     shell: /bin/bash
     commands:
-    - bash do.sh install_deps
-    - bash do.sh check_deps
-    - bash do.sh build
     - bash do.sh build_prod
 
   deploy:
