@@ -20,8 +20,7 @@ questionnaire:
         type: block
         id: block_integration
         items:
-          - text: 2.1 Is any of your services call 3rd party services outside of
-              Travix
+          - text: 2.1 Is any of your services call 3rd party services outside of Travix
             choices:
               - two_one_yes: Yes
               - two_one_no: No
@@ -74,21 +73,67 @@ questionnaire:
             cond: two_one_d_h
             type: box
             id: two_one_e
-          - text: 2.2 Is any of your services get called by 3rd party services
-              outside of Travix
-            choices:
-              - two_two_yes: Yes
-              - two_two_no: No
-            type: radiogroup
-            id: two_two
-            defaultChoice: false
-          - text: 2.2.a Please list the 3rd party services
-            cond: two_two_yes
-            type: box
-            id: two_two_a
 #####################################################################
-      - text: 3.  <span class="asterisc">(*)</span> Personally identifiable
-          information (PII)
+      - text: 3. Third Party Integration (Intbound)
+        required: true
+        type: block
+        id: block_integration
+        items:
+          - text: 3.1 Is any of your services get called by 3rd party services outside of Travix
+            choices:
+              - 3_1_yes: Yes
+              - 3_1_no: No
+            type: radiogroup
+            id: 3_1
+            defaultChoice: false
+          - text: 3.1.a Please list the 3rd party services
+            cond: 3_1_yes
+            type: box
+            id: 3_1_a
+          - text: 3.1.a.1 Is your services protected and need authentication
+            cond: 3_1_yes
+            choices:
+              - 3_1_a_1_yes: Yes
+              - 3_1_a_1_no: No
+            type: radiogroup
+            id: tw_o_a_o
+          - text: 3.1.b What type of Authentications you use to protect your services
+            choices:
+              - 3_1_b_a: Apigee / OAuth
+              - 3_1_b_b: Google Endpoint ESP
+              - 3_1_b_c: IP Whitelisting
+              - 3_1_b_d: Reverse DNS (rDNS) lookup
+              - 3_1_b_e: Client Certificate
+              - 3_1_b_f: Secret Key
+              - 3_1_b_g: Basic Auth (Username and Password)
+              - 3_1_b_h: Other
+            cond: 3_1_a_1_yes
+            type: checkgroup
+            id: 3_1_b
+            defaultChoice: false
+          - text: 3.1.c Please list the Other authentication methods
+            cond: 3_1_b_h
+            type: box
+            id: 3_1_c
+          - text: 3.1.d Where do you store the secrets for the Authentication
+            choices:
+              - 3_1_d_a: Vault
+              - 3_1_d_b: GoCD Secret
+              - 3_1_d_c: Estafette Global Secret
+              - 3_1_d_d: Estafette Repo Secret
+              - 3_1_d_e: MAAT / Database
+              - 3_1_d_f: Bitbucket Repository
+              - 3_1_d_h: Other
+            cond: 3_1_a_1_yes
+            type: checkgroup
+            id: 3_1_d
+            defaultChoice: false
+          - text: 3.1.e Please list the Other places
+            cond: 3_1_d_h
+            type: box
+            id: 3_1_e
+#####################################################################
+      - text: 4. Personally Identifiable Information (PII)
         required: true
         type: block
         id: block_pii
