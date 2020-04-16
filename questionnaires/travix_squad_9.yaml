@@ -34,8 +34,8 @@ questionnaire:
           - text: 2.1.a.1 Is the 3rd party services protected and need authentication
             cond: two_one_yes
             choices:
-              - tw_o_a_o_yes: Yes
-              - tw_o_a_o_no: No
+              - 2_1_a_1_yes: Yes
+              - 2_1_a_1_no: No
             type: radiogroup
             id: tw_o_a_o
           - text: 2.1.b What type of Authentications you use to call 3rd party services
@@ -48,7 +48,7 @@ questionnaire:
               - two_one_b_f: Secret Key
               - two_one_b_g: Basic Auth (Username and Password)
               - two_one_b_h: Other
-            cond: tw_o_a_o_yes
+            cond: 2_1_a_1_yes
             type: checkgroup
             id: two_one_b
             defaultChoice: false
@@ -65,7 +65,7 @@ questionnaire:
               - two_one_d_e: MAAT / Database
               - two_one_d_f: Bitbucket Repository
               - two_one_d_h: Other
-            cond: two_one_yes
+            cond: 2_1_a_1_yes
             type: checkgroup
             id: two_one_d
             defaultChoice: false
