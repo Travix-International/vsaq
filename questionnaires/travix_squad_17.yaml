@@ -96,7 +96,7 @@ questionnaire:
               - 3_1_a_1_yes: Yes
               - 3_1_a_1_no: No
             type: radiogroup
-            id: tw_o_a_o
+            id: 3_1_a_1
           - text: 3.1.b What type of Authentications you use to protect your services
             choices:
               - 3_1_b_a: Apigee / OAuth
