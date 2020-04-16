@@ -11,12 +11,22 @@ stages:
     - for yaml in questionnaires/*.yaml; do name=$(echo $yaml | cut -d. -f1); cat $yaml | /yaml-to-json > $name.json; done
     - ls questionnaires/
 
+  update:
+    image: extensions/gcs
+    credentials: gke-development
+    action: copy
+    source: 'questionnaires/*.json'
+    bucket: estafette.secret(q3Jlju-a4DzA-I6L.mMOZDz8bya17YKeiq_Bj63kM7bc00P8GhWCs3IisKw==.idmMFmQNla9iZPDYuv546YmJAHwsRSjKDSruPR6L32QkJ45g9L1RQRN9Q-BAMr3wG4ve-A==)
+    destination: questionnaires/
+
   build:
     image: travix/vsaq
     shell: /bin/bash
     commands:
     - bash do.sh install_deps
     - bash do.sh build_prod
+    when:
+      branch == 'master'
 
   deploy:
     image: extensions/gcs
@@ -24,3 +34,5 @@ stages:
     action: copy
     source: 'build/*'
     bucket: estafette.secret(q3Jlju-a4DzA-I6L.mMOZDz8bya17YKeiq_Bj63kM7bc00P8GhWCs3IisKw==.idmMFmQNla9iZPDYuv546YmJAHwsRSjKDSruPR6L32QkJ45g9L1RQRN9Q-BAMr3wG4ve-A==)
+    when:
+      branch == 'master'
