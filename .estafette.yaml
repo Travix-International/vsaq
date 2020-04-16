@@ -8,8 +8,7 @@ stages:
     image: travix/yaml2json
     commands:
     - ls questionnaires/
-    - cat questionnaires/travix_1.yaml | /yaml-to-json
-    - for yaml in questionnaires/*.yaml; do cat $yaml | /yaml-to-json > questionnaires/$yaml.json; done
+    - for yaml in questionnaires/*.yaml; do cat $yaml | /yaml-to-json > $yaml.json; done
     - ls questionnaires/
 
   build:
