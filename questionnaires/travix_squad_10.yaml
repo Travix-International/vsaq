@@ -14,7 +14,8 @@ questionnaire:
           - text: 1.2 Email address for your security guild members
             type: line
             id: security_contact
-      - text: 2. Third Party Integration
+#####################################################################
+      - text: 2. Third Party Integration (Outbound)
         required: true
         type: block
         id: block_integration
@@ -85,6 +86,7 @@ questionnaire:
             cond: two_two_yes
             type: box
             id: two_two_a
+#####################################################################
       - text: 3.  <span class="asterisc">(*)</span> Personally identifiable
           information (PII)
         required: true
