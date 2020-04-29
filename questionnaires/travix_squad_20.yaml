@@ -243,11 +243,11 @@ questionnaire:
             defaultChoice: false
           - text: 5.3.c Do you use Estafette-Trivy to detect vulnerabilities in the dokcer image?
             choices:
-              - 5_2_c_yes: Yes
-              - 5_2_c_no: No
+              - 5_3_c_yes: Yes
+              - 5_3_c_no: No
             cond: 5_2_yes
             type: checkgroup
-            id: 5_2_c
+            id: 5_3_c
             defaultChoice: false
 
           - text: 5.4 Do you use Estafette-OWASP-ZAP to detect vulnerabilities in your API?
