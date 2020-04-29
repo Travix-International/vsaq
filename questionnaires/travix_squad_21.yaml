@@ -252,11 +252,11 @@ questionnaire:
 
           - text: 5.4 Do you use Estafette-OWASP-ZAP to detect vulnerabilities in your API?
             choices:
-              - 5_3_yes: Yes
-              - 5_3_no: No
+              - 5_4_yes: Yes
+              - 5_4_no: No
             type: radiogroup
-            id: 5_3
-            defaultChoice: 5_3_no
+            id: 5_4
+            defaultChoice: 5_4_no
 #####################################################################
       - text: 6. Enforcing HTTPS 
         required: true
