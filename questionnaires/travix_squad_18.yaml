@@ -145,7 +145,7 @@ questionnaire:
             type: radiogroup
             id: pii
             defaultChoice: false
-          - text: 4.2 Is all personal data you store encrypted across all systems that interact with the personal data?
+          - text: 4.2 Is all personal data you store encrypted?
             choices:
               - pii_encrypted_yes: Yes
               - pii_encrypted_no: No
@@ -169,411 +169,6 @@ questionnaire:
             type: box
             id: 4_3_b
 #####################################################################            
-      - text: 4. Information Security Program
-        type: block
-        id: block_security_program
-        items:
-          - text: 4.1  <span class="asterisc">(*)</span> Security Controls
-            required: true
-            type: block
-            id: block_security_controls
-            items:
-              - text: "4.1.1 Select the controls you currently maintain as elements
-                  of your information security program:"
-                choices:
-                  - secprog_privacy_policy: An external policy or notice to the public, users, or
-                      customers describing how you protect the security and
-                      privacy of data e.g. privacy policy
-                  - secprog_policies: Written internal policies, guidelines and documented
-                      practices for the safe handling and protection of data
-                  - secprog_intaudits: Internal audits of the security program
-                  - secprog_independent_audit: Third-party audits of the security program
-                  - secprog_ra: A risk management framework to regularly review the
-                      threats to your company
-                  - secprog_hr: A process to ensure security is present throughout your
-                      Human Resources processes
-                  - secprog_vendorsec: A process to ensure that your third parties and
-                      subcontractors are capable of taking appropriate steps to
-                      protect data and systems
-                  - secprog_incidentmanagement: Processes and procedures to ensure that security incidents
-                      are discovered in a timely manner and dealt with
-                      effectively
-                  - secprog_changemgmt: A change management process to endure that all changes to
-                      networks, systems and processes are appropriately reviewed
-                type: checkgroup
-                defaultChoice: false
-              - text: 4.1.2  <span class="asterisc">(*)</span> Provide a link to
-                  your public security and/or privacy policy.
-                cond: secprog_privacy_policy
-                required: true
-                type: line
-                id: secprog_privacy_policy_uri
-              - text: 4.1.3 Security and Privacy Policies
-                cond: secprog_policies
-                type: block
-                id: block_security_policies
-                items:
-                  - text: "4.1.3.1 Select the topics that are covered by your
-                      security and privacy policies:"
-                    choices:
-                      - secprog_policies_class: Information classification and protection
-                      - secprog_policies_hr: Security in human resources
-                      - secprog_policies_physsec: Physical security requirements
-                      - secprog_policies_acceptableuse: Acceptable use of information and IT devices
-                      - secprog_policies_accesscontrol: Access control
-                      - secprog_policies_privacy: Authorized/unauthorized use and disclosure of data
-                      - secprog_policies_software: Software development
-                      - secprog_policies_incidentmgmt: Incident management and response procedures for both
-                          security and privacy incidents
-                      - secprog_policies_compliance: Compliance with laws and regulations
-                      - secprog_policies_data_destruction: Retention and destruction of data
-                    type: checkgroup
-                    defaultChoice: false
-                  - text: "4.1.3.2 It seems that some topics are not covered by your
-                      security policies. Please explain below if you have
-                      controls in place to compensate for the lack of these
-                      policies:"
-                    cond: "!secprog_policies_class || !secprog_policies_hr ||
-                      !secprog_policies_physsec ||
-                      !secprog_policies_acceptableuse ||
-                      !secprog_policies_accesscontrol ||
-                      !secprog_policies_privacy || !secprog_policies_software ||
-                      !secprog_policies_incidentmgmt ||
-                      !secprog_policies_compliance"
-                    type: box
-                    name: Important security policies missing
-                    id: warn_secprog_policies
-                  - text: 4.1.3.3  <span class="asterisc">(*)</span> How often does
-                      your company review its security policies?
-                    choices:
-                      - secprog_policies_review_immediately: In response to incidents or business changes.
-                      - secprog_policies_review_often: Multiple times per year.
-                      - secprog_policies_review_annually: Once per year.
-                      - secprog_policies_review_rare: Less frequently.
-                    required: true
-                    type: radiogroup
-                    defaultChoice: false
-              - text: 4.1.4  <span class="asterisc">(*)</span> Internal Audit
-                required: true
-                cond: secprog_intaudits
-                items:
-                  - text: 4.1.4.1 How often are internal information security audits
-                      performed?
-                    choices:
-                      - secprog_intaudits_often: Quarterly or more often.
-                      - secprog_intaudits_annually: At least annually.
-                      - secprog_intaudits_rare: Less frequently.
-                    type: radiogroup
-                    defaultChoice: false
-                  - text: 4.1.4.2 Does the scope of your internal assessment include
-                      the entire security and privacy program, as well as all
-                      operations, services, and systems that involve access to
-                      the customer data or systems that are used in this
-                      project?
-                    choices:
-                      - secprog_intaudits_scope_yes: Yes.
-                      - secprog_intaudits_scope_no: No, the assessments are limited.
-                    type: radiogroup
-                    id: secprog_intaudits_scope
-                    defaultChoice: false
-                  - text: 4.1.4.3 How is the scope limited?
-                    cond: secprog_intaudits_scope_no
-                    type: line
-                    id: secprog_intaudits_scope_limits
-                  - text: 4.1.4.4 Does your internal assessment audit your company's
-                      compliance with any specific information security or
-                      privacy standards?
-                    choices:
-                      - secprog_intaudits_std_yes: Yes.
-                      - secprog_intaudits_std_no: No.
-                    type: radiogroup
-                    id: secprog_intaudits_std
-                    defaultChoice: false
-                  - text: 4.1.4.5 To what standards does your internal assessment
-                      audit compliance?
-                    cond: secprog_intaudits_std_yes
-                    type: line
-                    id: secprog_intaudits_std_names
-                type: block
-                id: block_internal_audit
-              - text: 4.1.5  <span class="asterisc">(*)</span> Independent Audit
-                required: true
-                cond: secprog_independent_audit
-                items:
-                  - text: 4.1.5.1 How often are you independently audited by a third
-                      party?
-                    choices:
-                      - secprog_extaudits_quarterly: Quarterly or more often.
-                      - secprog_extaudits_annually: Annually.
-                      - secprog_extaudits_rare: Less frequently.
-                    type: radiogroup
-                    defaultChoice: false
-                  - text: 4.1.5.2 Does the independent audit include the entire
-                      security program?
-                    choices:
-                      - secprog_extaudits_scope_yes: Yes.
-                      - secprog_extaudits_scope_no: No, the audits are limited.
-                    type: radiogroup
-                    id: secprog_extaudits_scope
-                    defaultChoice: false
-                  - text: 4.1.5.3 Please detail the scope of the independent audit
-                    cond: secprog_extaudits_scope_no
-                    type: line
-                    id: secprog_extaudits_scope_limited
-                  - text: 4.1.5.4 Does the independent audit include checking your
-                      companies compliance with any specific information
-                      security standard?
-                    choices:
-                      - secprog_extaudits_std_yes: Yes.
-                      - secprog_extaudits_std_no: No.
-                    type: radiogroup
-                    id: secprog_extaudits_std
-                    defaultChoice: false
-                  - text: 4.1.5.5 What standards does the audit comply with?
-                    cond: secprog_extaudits_std_yes
-                    type: line
-                    id: secprog_extaudits_std_list
-                  - text: 4.1.5.6 How often do you change auditors? Please also list
-                      the auditors you selected for the most recent audits
-                    type: box
-                    id: secprog_extaudits_companies
-                  - text: 4.1.5.7 Are you willing to share a management summary of
-                      the most recent audit reports?
-                    choices:
-                      - secprog_extaudits_sharereports_yes: Yes.
-                      - secprog_extaudits_sharereports_no: No.
-                    type: radiogroup
-                    id: secprog_extaudits_sharereports
-                    defaultChoice: false
-                type: block
-                id: block_independent_audits
-              - text: 4.1.6  <span class="asterisc">(*)</span> Risk Framework
-                required: true
-                cond: secprog_ra
-                items:
-                  - text: 4.1.6.1 Under your risk management process, how often are
-                      risk assessments reviewed and updated?
-                    choices:
-                      - secprog_ra_often: Multiple times per year.
-                      - secprog_ra_annually: Once per year.
-                      - secprog_ra_rare: Less frequently.
-                    type: radiogroup
-                    defaultChoice: false
-                type: block
-                id: block_risk_framework
-              - text: 4.1.7  <span class="asterisc">(*)</span> Personnel Security
-                required: true
-                cond: secprog_hr
-                items:
-                  - text: 4.1.7.1 Do you have processes in place to ensure that
-                      access to data is granted solely on a "need-to-know" or
-                      "least privilege" basis, in accordance with the job
-                      descriptions and responsibilities of users?
-                    choices:
-                      - secprog_peopleops_needtoknow_yes: Yes
-                      - secprog_peopleops_needtoknow_no: No
-                    type: radiogroup
-                    id: secprog_peopleops_needtoknow
-                    defaultChoice: false
-                  - text: 4.1.7.2 Do these processes also revoke access when the
-                      need no longer exists?
-                    choices:
-                      - secprog_peopleops_revoke_access_yes: Yes
-                      - secprog_peopleops_revoke_access_no: No
-                    cond: secprog_peopleops_needtoknow_yes
-                    defaultChoice: false
-                    type: radiogroup
-                    id: secprog_peopleops_revoke_access
-                  - text: 4.1.7.3 Do you have a disciplinary process in place for
-                      handling policy violations?
-                    choices:
-                      - secprog_peopleops_disciplinary_process_yes: Yes
-                      - secprog_peopleops_disciplinary_process_no: No
-                    type: radiogroup
-                    id: secprog_peopleops_disciplinary_process
-                    defaultChoice: false
-                  - text: 4.1.7.4 Do you have a process to remove access for
-                      individuals leaving employment, so that all access is
-                      revoked, including Software-as-a-Service applications?
-                    choices:
-                      - secprog_peopleops_leaver_yes: Yes
-                      - secprog_peopleops_leaver_no: No
-                    type: radiogroup
-                    id: secprog_peopleops_leaver
-                    defaultChoice: false
-                  - text: 4.1.7.5 How often do you require your employees to undergo
-                      information security training?
-                    choices:
-                      - secprog_peopleops_train_never: Never.
-                      - secprog_peopleops_train_hire: Once, upon hire.
-                      - secprog_peopleops_train_annually: Upon hire, and at least once per year.
-                    type: radiogroup
-                    defaultChoice: false
-                  - text: 4.1.7.6 Do you require temps, interns, and contractors to
-                      undergo security training?
-                    choices:
-                      - secprog_train_tvc_yes: Yes
-                      - secprog_train_tvc_no: No
-                    type: radiogroup
-                    id: secprog_train_tvc
-                    defaultChoice: false
-                  - text: 4.1.7.7 Do you perform background checks on all personnel?
-                    choices:
-                      - secprog_background_checks_yes: Yes
-                      - secprog_background_checks_no: No
-                    type: radiogroup
-                    id: secprog_background_checks
-                    defaultChoice: false
-                  - text: 4.1.7.8 Background Checks
-                    cond: secprog_background_checks_yes
-                    type: block
-                    id: block_background_checks
-                    items:
-                      - text: What kinds of background checks do you perform for
-                          employees who potentially have access to confidential
-                          information? Select all that apply.
-                        choices:
-                          - secprog_bgcheck_cv: CV/resume checks
-                          - secprog_bgcheck_reference: Reference checks
-                          - secprog_bgcheck_criminal: Criminal record/conviction checks
-                          - secprog_bgcheck_credit: Credit checks
-                          - secprog_bgcheck_other: Other background checks, as described below
-                        type: checkgroup
-                        defaultChoice: false
-                      - text: "Please state what other checks you perform for new
-                          hires:"
-                        cond: secprog_bgcheck_other
-                        type: box
-                        id: secprog_bgcheck_other_desc
-                type: block
-                id: block_personnel_security
-              - text: 4.1.8  <span class="asterisc">(*)</span> Third Party Security
-                required: true
-                cond: secprog_vendorsec
-                items:
-                  - text: 4.1.8.1 Do you perform reviews of all service providers
-                      and subcontractors, to ensure they sufficiently protect
-                      the security of data and systems they access?
-                    choices:
-                      - secprog_vendorsec_owner_yes: Yes.
-                      - secprog_vendorsec_owner_no: No.
-                    type: radiogroup
-                    id: secprog_vendorsec_owner
-                    defaultChoice: false
-                  - text: 4.1.8.2 Do you have written contracts with third parties,
-                      that require them to adequately protect the security and
-                      privacy of data they may receive during the partnership?
-                    choices:
-                      - secprog_vendorsec_clauses_yes: Yes, we require all our outsourcing providers, vendors
-                          and subcontractors to agree to contract clauses that
-                          assert security requirements.
-                      - secprog_vendorsec_clauses_no: No, not all vendors that are protection-ally exposed
-                          to data have agreed to security requirements
-                          contractually.
-                    type: radiogroup
-                    id: secprog_vendorsec_clauses
-                    defaultChoice: false
-                type: block
-                id: block_vendor_security
-              - text: 4.1.9  <span class="asterisc">(*)</span> Security Incident
-                  Management
-                required: true
-                cond: secprog_incidentmanagement
-                items:
-                  - text: "4.1.9.1 Select the controls you have in place for
-                      identifying security incidents:"
-                    choices:
-                      - secprog_incidents_monitoring_ids: We have signature and/or anomaly based IDS/IPS in
-                          place, and sensors are in place at strategic points
-                          throughout the network.
-                      - secprog_incidents_monitoring_logs: We regularly review log files for signs of intrusion.
-                      - secprog_incidents_monitoring_other: We have other methods in place to detect security and
-                          privacy incidents.
-                    type: checkgroup
-                    defaultChoice: false
-                  - text: 4.1.9.2 Describe the other detection methods you have in
-                      place.
-                    cond: secprog_incidents_monitoring_other
-                    type: box
-                    id: secprog_incidents_monitoring_other_description
-                  - text: 4.1.9.3 Are incident response procedures documented?
-                    choices:
-                      - secprog_incidents_procedures_yes: Yes
-                      - secprog_incidents_procedures_no: No
-                    type: radiogroup
-                    id: secprog_incidents_procedures
-                    defaultChoice: false
-                  - text: 4.1.9.4 Do you have the resources to internally conduct
-                      incident investigations?
-                    choices:
-                      - secprog_incidents_knowhow_yes: Yes
-                      - secprog_incidents_knowhow_no: No
-                    type: radiogroup
-                    id: secprog_incidents_knowhow
-                    defaultChoice: false
-                  - text: 4.1.9.5 Do you inform affected customers about security
-                      incidents?
-                    choices:
-                      - secprog_incidents_inform_yes: Yes
-                      - secprog_incidents_inform_no: No
-                    type: radiogroup
-                    id: secprog_incidents_inform
-                    defaultChoice: false
-                type: block
-                id: block_incident_response
-              - text: 4.1.10  <span class="asterisc">(*)</span> Change Management
-                required: true
-                cond: secprog_changemgmt
-                items:
-                  - text: 4.1.10.1 Is your change management process formally
-                      documented, and does it classify changes by risk?
-                    choices:
-                      - secprog_changemgmt_documented_yes: Yes
-                      - secprog_changemgmt_documented_no: No
-                    type: radiogroup
-                    id: secprog_changemgmt_documented
-                    defaultChoice: false
-                  - text: 4.1.10.2 Does your change review board include
-                      representatives from the teams that are responsible for
-                      security?
-                    choices:
-                      - secprog_changemgmt_secrep_yes: Yes
-                      - secprog_changemgmt_secrep_no: No
-                    type: radiogroup
-                    id: secprog_changemgmt_secrep
-                    defaultChoice: false
-                  - text: 4.1.10.3 Do you retain records and documentation about the
-                      changes that go through change management?
-                    choices:
-                      - secprog_changemgmt_records_yes: Yes
-                      - secprog_changemgmt_records_no: No
-                    type: radiogroup
-                    id: secprog_changemgmt_records
-                    defaultChoice: false
-                type: block
-                id: block_changemgmt
-          - text: 4.2 Compliance and Regulations
-            type: block
-            id: block_compliance_regs
-            items:
-              - text: '4.2.1  <span class="asterisc">(*)</span> Please select any
-                  compliance or regulatory requirements that impact the scope of
-                  your relationship with Travix:'
-                choices:
-                  - comp_reg_pcidss: PCI-DSS
-                  - comp_reg_ssae1618: SSAE16/18
-                  - comp_reg_eudpagdpr: EU DPA/GDPR
-                  - comp_reg_other: Other, please detail.
-                required: true
-                type: checkgroup
-                defaultChoice: false
-              - text: 4.2.2  <span class="asterisc">(*)</span> Please detail the
-                  other compliance or regulatory requirements that impact the
-                  scope of your relationship with Travix.
-                cond: comp_reg_other
-                required: true
-                type: box
-                id: comp_reg_other_descrip
       - text: 5. Application Security
         cond: integration_api || integration_webapp || integration_fat_client ||
           integration_outsourced_software_partner
@@ -1265,6 +860,7 @@ questionnaire:
                           crashes/exceptions."
                     type: radiogroup
                     defaultChoice: false
+#####################################################################    
       - text: 6. Network
         type: block
         id: block_network
@@ -1440,6 +1036,7 @@ questionnaire:
               network? If yes, please provide them below:"
             type: box
             id: network_other
+#####################################################################    
       - text: 7. Servers
         type: block
         id: block_servers
@@ -1549,6 +1146,7 @@ questionnaire:
                 type: radiogroup
                 id: servers_backup_dcsync
                 defaultChoice: false
+#####################################################################    
       - text: 8. Email
         type: block
         id: block_email
@@ -1602,6 +1200,7 @@ questionnaire:
             type: radiogroup
             id: servers_email_outbound_starttls
             defaultChoice: false
+#####################################################################    
       - text: 9. Endpoints (Work Stations, Laptops, etc.)
         type: block
         id: block_clients
@@ -1658,6 +1257,7 @@ questionnaire:
             type: radiogroup
             id: clients_laptops_hd_encrypted
             defaultChoice: false
+#####################################################################    
       - text: 10. Patching
         type: block
         id: block_patching
@@ -1685,6 +1285,7 @@ questionnaire:
                   about vulnerabilities in the software they use.
             type: checkgroup
             defaultChoice: false
+#####################################################################    
       - text: 11. Monitoring
         type: block
         id: block_monitoring
@@ -1700,6 +1301,7 @@ questionnaire:
               - monitoring_4: Logs are stored in a central location
             type: checkgroup
             defaultChoice: false
+#####################################################################    
       - text: 12. Technical Security Testing
         type: block
         id: block_security_testing
@@ -1835,6 +1437,7 @@ questionnaire:
               testing of your infrastructure and/or product?
             type: box
             id: testing_other
+#####################################################################    
       - text: 13. Security at the Office
         type: block
         id: block_office_security
@@ -1950,6 +1553,7 @@ questionnaire:
               physical security at your office?
             type: box
             id: office_other
+#####################################################################    
       - text: 14. Data Center Security
         type: block
         items:
@@ -2102,6 +1706,7 @@ questionnaire:
               of your data centers?
             type: box
             id: dc_other
+#####################################################################    
       - text: 15. Feedback
         type: block
         id: block_feedback
@@ -2111,3 +1716,4 @@ questionnaire:
               how we can improve it. Any feedback is highly appreciated.
             type: box
             id: feedback
+#####################################################################    

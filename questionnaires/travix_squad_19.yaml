@@ -1,0 +1,288 @@
+questionnaire:
+  - text: Squad Security assessment
+    version: 1.3
+    type: block
+    items:
+      - text: 1. Squad Information
+        required: true
+        type: block
+        id: block_company_info
+        items:
+          - text: 1.1 Squad Name
+            type: line
+            id: name_of_product
+          - text: 1.2 Email address for your security guild members
+            type: line
+            id: security_contact
+#####################################################################
+      - text: 2. Third Party Integration (Outbound)
+        required: true
+        type: block
+        id: block_integration
+        items:
+          - text: 2.1 Is any of your services call 3rd party services outside of Travix
+            choices:
+              - two_one_yes: Yes
+              - two_one_no: No
+            type: radiogroup
+            id: two_one
+            defaultChoice: false
+          - text: 2.1.a Please list the 3rd party services
+            cond: two_one_yes
+            type: box
+            id: two_one_a
+          - text: 2.1.a.1 Is the 3rd party services protected and need authentication
+            cond: two_one_yes
+            choices:
+              - 2_1_a_1_yes: Yes
+              - 2_1_a_1_no: No
+            type: radiogroup
+            id: tw_o_a_o
+          - text: 2.1.b What type of Authentications you use to call 3rd party services
+            choices:
+              - two_one_b_a: Apigee / OAuth
+              - two_one_b_b: Google Endpoint ESP
+              - two_one_b_c: IP Whitelisting
+              - two_one_b_d: Reverse DNS (rDNS) lookup
+              - two_one_b_e: Client Certificate
+              - two_one_b_f: Secret Key
+              - two_one_b_g: Basic Auth (Username and Password)
+              - two_one_b_h: Other
+            cond: 2_1_a_1_yes
+            type: checkgroup
+            id: two_one_b
+            defaultChoice: false
+          - text: 2.1.c Please list the Other authentication methods
+            cond: two_one_b_h
+            type: box
+            id: two_one_c
+          - text: 2.1.d Where do you store the secrets for the Authentication
+            choices:
+              - two_one_d_a: Vault
+              - two_one_d_b: GoCD Secret
+              - two_one_d_c: Estafette Global Secret
+              - two_one_d_d: Estafette Repo Secret
+              - two_one_d_e: MAAT / Database
+              - two_one_d_f: Bitbucket Repository
+              - two_one_d_h: Other
+            cond: 2_1_a_1_yes
+            type: checkgroup
+            id: two_one_d
+            defaultChoice: false
+          - text: 2.1.e Please list the Other places
+            cond: two_one_d_h
+            type: box
+            id: two_one_e
+#####################################################################
+      - text: 3. Third Party Integration (Inbound)
+        required: true
+        type: block
+        id: block_integration_inbound
+        items:
+          - text: 3.1 Is any of your services get called by 3rd party services outside of Travix
+            choices:
+              - 3_1_yes: Yes
+              - 3_1_no: No
+            type: radiogroup
+            id: 3_1
+            defaultChoice: false
+          - text: 3.1.a Please list the 3rd party services
+            cond: 3_1_yes
+            type: box
+            id: 3_1_a
+          - text: 3.1.a.1 Is your services protected and need authentication
+            cond: 3_1_yes
+            choices:
+              - 3_1_a_1_yes: Yes
+              - 3_1_a_1_no: No
+            type: radiogroup
+            id: 3_1_a_1
+          - text: 3.1.b What type of Authentications you use to protect your services
+            choices:
+              - 3_1_b_a: Apigee / OAuth
+              - 3_1_b_b: Google Endpoint ESP
+              - 3_1_b_c: IP Whitelisting
+              - 3_1_b_d: Reverse DNS (rDNS) lookup
+              - 3_1_b_e: Client Certificate
+              - 3_1_b_f: Secret Key
+              - 3_1_b_g: Basic Auth (Username and Password)
+              - 3_1_b_h: Other
+            cond: 3_1_a_1_yes
+            type: checkgroup
+            id: 3_1_b
+            defaultChoice: false
+          - text: 3.1.c Please list the Other authentication methods
+            cond: 3_1_b_h
+            type: box
+            id: 3_1_c
+          - text: 3.1.d Where do you store the secrets for the Authentication
+            choices:
+              - 3_1_d_a: Vault
+              - 3_1_d_b: GoCD Secret
+              - 3_1_d_c: Estafette Global Secret
+              - 3_1_d_d: Estafette Repo Secret
+              - 3_1_d_e: MAAT / Database
+              - 3_1_d_f: Bitbucket Repository
+              - 3_1_d_h: Other
+            cond: 3_1_a_1_yes
+            type: checkgroup
+            id: 3_1_d
+            defaultChoice: false
+          - text: 3.1.e Please list the Other places
+            cond: 3_1_d_h
+            type: box
+            id: 3_1_e
+#####################################################################
+      - text: 4. Personally Identifiable Information (PII)
+        required: true
+        type: block
+        id: block_pii
+        items:
+          - text: 4.1 Will you process or store any personal data of customers of Travix? This includes, but is not limited to names, addresses, email addresses, passport information.
+            choices:
+              - pii_yes: Yes
+              - pii_no: No
+            type: radiogroup
+            id: pii
+            defaultChoice: false
+          - text: 4.2 Is all personal data you store encrypted?
+            choices:
+              - pii_encrypted_yes: Yes
+              - pii_encrypted_no: No
+            cond: pii_yes
+            defaultChoice: false
+            type: radiogroup
+            id: pii_encrypted
+          - text: 4.3.a Where do you store the PII data
+            choices:
+              - 4_3_a_a: Database (MS SQL Cluster)
+              - 4_3_a_b: Database (GCP SQL)
+              - 4_3_a_c: GCP Bigtable/DataStore/Firestore/Filestore/Storage
+              - 4_3_a_d: Elasticsearch
+              - 4_3_a_h: Other
+            cond: pii_yes
+            type: checkgroup
+            id: 4_3_a
+            defaultChoice: false
+          - text: 4.3.b Please list the Other places
+            cond: 4_3_a_h
+            type: box
+            id: 4_3_b
+#####################################################################
+      - text: 5. Vulnerability Scanning 
+        required: true
+        type: block
+        id: 5
+        items:
+          - text: 5.1 Do you use programming language framework? (like .Net Core, Spring, React.js, etc..)
+            choices:
+              - 5_1_yes: Yes
+              - 5_1_no: No
+            type: radiogroup
+            id: 5_1
+            defaultChoice: false
+          - text: 5.1.a Please list the frameworks you are using with the versions
+            cond: 5_1_yes
+            type: box
+            id: 5_1_a
+          - text: 5.1.b Do you upgrade the used frameworks to the latest stable version or LTS version regularly?
+            choices:
+              - 5_1_b_yes: Yes
+              - 5_1_b_no: No
+            cond: 5_1_yes
+            type: checkgroup
+            id: 5_1_b
+            defaultChoice: false
+          - text: 5.1.c Do you use SonarQube to detect vulnerabilities in the source code?
+            choices:
+              - 5_1_c_yes: Yes
+              - 5_1_c_no: No
+            cond: 5_1_yes
+            type: checkgroup
+            id: 5_1_c
+            defaultChoice: false
+
+          - text: 5.2 Do you use libraries or packages developed outside of Travix
+            choices:
+              - 5_2_yes: Yes
+              - 5_2_no: No
+            type: radiogroup
+            id: 5_2
+            defaultChoice: false
+          - text: 5.2.a Do you upgrade the used libraries or packages to the latest stable version or LTS version regularly 
+            choices:
+              - 5_2_a_yes: Yes
+              - 5_2_a_no: No
+            cond: 5_2_yes
+            type: checkgroup
+            id: 5_2_a
+            defaultChoice: false
+          - text: 5.2.c Do you use Snyk.io to detect vulnerabilities in the packages?
+            choices:
+              - 5_2_c_yes: Yes
+              - 5_2_c_no: No
+            cond: 5_2_yes
+            type: checkgroup
+            id: 5_2_c
+            defaultChoice: false
+
+          - text: 5.3 Do you use Docker to run your application?
+            choices:
+              - 5_3_yes: Yes
+              - 5_3_no: No
+            type: radiogroup
+            id: 5_3
+            defaultChoice: false
+          - text: 5.3.a Do you upgrade the used Docker base image to the latest stable version regularly 
+            choices:
+              - 5_3_a_yes: Yes
+              - 5_3_a_no: No
+            cond: 5_3_yes
+            type: checkgroup
+            id: 5_3_a
+            defaultChoice: false
+          - text: 5.3.c Do you use Estafette-Trivy to detect vulnerabilities in the dokcer image?
+            choices:
+              - 5_2_c_yes: Yes
+              - 5_2_c_no: No
+            cond: 5_2_yes
+            type: checkgroup
+            id: 5_2_c
+            defaultChoice: false
+
+          - text: 5.4 Do you use Estafette-OWASP-ZAP to detect vulnerabilities in your API?
+            choices:
+              - 5_3_yes: Yes
+              - 5_3_no: No
+            type: radiogroup
+            id: 5_3
+            defaultChoice: 5_3_no
+#####################################################################
+      - text: 6. Enforcing HTTPS 
+        required: true
+        type: block
+        id: 6
+        items:
+          - text: 6.1 Does your APIs accept HTTPS requests only
+            choices:
+              - 6_1_yes: Yes
+              - 6_1_no: No
+            type: radiogroup
+            id: 6_1
+            defaultChoice: false
+          - text: 6.2 Does your APIs calls other APIs via HTTPS only
+            choices:
+              - 6_2_yes: Yes
+              - 6_2_no: No
+            type: radiogroup
+            id: 6_2
+            defaultChoice: false
+#####################################################################
+#Observability
+#####################################################################
+#Secrets
+#####################################################################
+#Deployment
+#####################################################################
+#Security Training and Awareness
+#####################################################################  
