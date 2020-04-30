@@ -11,7 +11,7 @@ questionnaire:
           - text: 1.1 Squad Name
             type: line
             id: name_of_product
-          - text: 1.2 Email address for your security guild members
+          - text: 1.2 Email address of your security guild members
             type: line
             id: security_contact
 #####################################################################
@@ -56,23 +56,6 @@ questionnaire:
             cond: two_one_b_h
             type: box
             id: two_one_c
-          - text: 2.1.d Where do you store the secrets for the Authentication
-            choices:
-              - two_one_d_a: Vault
-              - two_one_d_b: GoCD Secret
-              - two_one_d_c: Estafette Global Secret
-              - two_one_d_d: Estafette Repo Secret
-              - two_one_d_e: MAAT / Database
-              - two_one_d_f: Bitbucket Repository
-              - two_one_d_h: Other
-            cond: 2_1_a_1_yes
-            type: checkgroup
-            id: two_one_d
-            defaultChoice: false
-          - text: 2.1.e Please list the Other places
-            cond: two_one_d_h
-            type: box
-            id: two_one_e
 #####################################################################
       - text: 3. Third Party Integration (Inbound)
         required: true
@@ -115,23 +98,6 @@ questionnaire:
             cond: 3_1_b_h
             type: box
             id: 3_1_c
-          - text: 3.1.d Where do you store the secrets for the Authentication
-            choices:
-              - 3_1_d_a: Vault
-              - 3_1_d_b: GoCD Secret
-              - 3_1_d_c: Estafette Global Secret
-              - 3_1_d_d: Estafette Repo Secret
-              - 3_1_d_e: MAAT / Database
-              - 3_1_d_f: Bitbucket Repository
-              - 3_1_d_h: Other
-            cond: 3_1_a_1_yes
-            type: checkgroup
-            id: 3_1_d
-            defaultChoice: false
-          - text: 3.1.e Please list the Other places
-            cond: 3_1_d_h
-            type: box
-            id: 3_1_e
 #####################################################################
       - text: 4. Personally Identifiable Information (PII)
         required: true
@@ -190,7 +156,7 @@ questionnaire:
               - 5_1_b_yes: Yes
               - 5_1_b_no: No
             cond: 5_1_yes
-            type: checkgroup
+            type: radiogroup
             id: 5_1_b
             defaultChoice: false
           - text: 5.1.c Do you use SonarQube to detect vulnerabilities in the source code?
@@ -198,7 +164,7 @@ questionnaire:
               - 5_1_c_yes: Yes
               - 5_1_c_no: No
             cond: 5_1_yes
-            type: checkgroup
+            type: radiogroup
             id: 5_1_c
             defaultChoice: false
 
@@ -214,7 +180,7 @@ questionnaire:
               - 5_2_a_yes: Yes
               - 5_2_a_no: No
             cond: 5_2_yes
-            type: checkgroup
+            type: radiogroup
             id: 5_2_a
             defaultChoice: false
           - text: 5.2.c Do you use Snyk.io to detect vulnerabilities in the packages?
@@ -222,7 +188,7 @@ questionnaire:
               - 5_2_c_yes: Yes
               - 5_2_c_no: No
             cond: 5_2_yes
-            type: checkgroup
+            type: radiogroup
             id: 5_2_c
             defaultChoice: false
 
@@ -238,7 +204,7 @@ questionnaire:
               - 5_3_a_yes: Yes
               - 5_3_a_no: No
             cond: 5_3_yes
-            type: checkgroup
+            type: radiogroup
             id: 5_3_a
             defaultChoice: false
           - text: 5.3.c Do you use Estafette-Trivy to detect vulnerabilities in the dokcer image?
@@ -246,7 +212,7 @@ questionnaire:
               - 5_3_c_yes: Yes
               - 5_3_c_no: No
             cond: 5_2_yes
-            type: checkgroup
+            type: radiogroup
             id: 5_3_c
             defaultChoice: false
 
@@ -256,7 +222,7 @@ questionnaire:
               - 5_4_no: No
             type: radiogroup
             id: 5_4
-            defaultChoice: 5_4_no
+            defaultChoice: false
 #####################################################################
       - text: 6. Enforcing HTTPS 
         required: true
@@ -278,11 +244,110 @@ questionnaire:
             id: 6_2
             defaultChoice: false
 #####################################################################
-#Observability
+      - text: 7. Secrets 
+        required: true
+        type: block
+        id: 7
+        items:
+          - text: 7.1 Does your Application use any secrets? This includes, but is not limited to Service-Account Key, DB connection string, Certificate, API Key, Encryption or Decryption key?
+            choices:
+              - 7_1_yes: Yes
+              - 7_1_no: No
+            type: radiogroup
+            id: 7_1
+            defaultChoice: false
+          - text: 7.1.d Where do you store the secrets for the Authentication
+            choices:
+              - 7_1_d_a: Vault
+              - 7_1_d_b: GoCD Secret
+              - 7_1_d_c: Estafette Global Secret
+              - 7_1_d_d: Estafette Repo Secret
+              - 7_1_d_e: MAAT / Database
+              - 7_1_d_f: Bitbucket Repository
+              - 7_1_d_h: Other
+            cond: 7_1_yes
+            type: checkgroup
+            id: 7_1_d
+            defaultChoice: false
+          - text: 7.1.e Please list the Other places
+            cond: 7_1_d_h
+            type: box
+            id: 7_1_e
 #####################################################################
-#Secrets
+      - text: 8. Build, Test and Deployment 
+        required: true
+        type: block
+        id: 8
+        items:
+          - text: 8.1 Does your build, test and deploy your Application using CICD?
+            choices:
+              - 8_1_yes: Yes
+              - 8_1_no: No
+            type: radiogroup
+            id: 8_1
+            defaultChoice: false
+          - text: 8.1.d List the CICD system you use
+            choices:
+              - 8_1_d_a: Estafette
+              - 8_1_d_b: GoCD
+              - 8_1_d_c: Octopus
+              - 8_1_d_d: TeamCity
+              - 8_1_d_e: Dataflow
+              - 8_1_d_f: Bitbucket Pipeline
+              - 8_1_d_h: Other
+            cond: 8_1_yes
+            type: checkgroup
+            id: 8_1_d
+            defaultChoice: false
+          - text: 8.1.e Please list the Other CICD
+            cond: 8_1_d_h
+            type: box
+            id: 8_1_e
 #####################################################################
-#Deployment
+      - text: 9. Logs, Metrics and Traces
+        required: true
+        type: block
+        id: 9
+        items:
+          - text: 9.1 Does your Application send logs to Elasticsearch?
+            choices:
+              - 9_1_yes: Yes
+              - 9_1_no: No
+            type: radiogroup
+            id: 9_1
+            defaultChoice: false
+          - text: 9.2 Does your Application send BI logs to PubSub?
+            choices:
+              - 9_2_yes: Yes
+              - 9_2_no: No
+            type: radiogroup
+            id: 9_2
+            defaultChoice: false
+          - text: 9.3 Does your Application send metrics to Prometheus?
+            choices:
+              - 9_3_yes: Yes
+              - 9_3_no: No
+            type: radiogroup
+            id: 9_3
+            defaultChoice: false
+          - text: 9.3 Does your Application send spnas to Jaeger?
+            choices:
+              - 9_3_yes: Yes
+              - 9_3_no: No
+            type: radiogroup
+            id: 9_3
+            defaultChoice: false
 #####################################################################
-#Security Training and Awareness
+      - text: 10. Security Training and Awareness
+        required: true
+        type: block
+        id: 10
+        items:
+          - text: 10.1 Does your Security Guild member received or planned Security Training in 2020?
+            choices:
+              - 10_1_yes: Yes
+              - 10_1_no: No
+            type: radiogroup
+            id: 10_1
+            defaultChoice: false
 #####################################################################  
