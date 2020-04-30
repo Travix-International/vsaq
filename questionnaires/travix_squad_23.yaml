@@ -330,12 +330,12 @@ questionnaire:
             type: radiogroup
             id: 9_3
             defaultChoice: false
-          - text: 9.3 Does your Application send spnas to Jaeger?
+          - text: 9.4 Does your Application send spnas to Jaeger?
             choices:
-              - 9_3_yes: Yes
-              - 9_3_no: No
+              - 9_4_yes: Yes
+              - 9_4_no: No
             type: radiogroup
-            id: 9_3
+            id: 9_4
             defaultChoice: false
 #####################################################################
       - text: 10. Security Training and Awareness
