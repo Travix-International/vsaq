@@ -316,28 +316,28 @@ questionnaire:
         type: block
         id: 9
         items:
-          - text: 9.1 Does your Application send logs to Elasticsearch?
+          - text: 9.1 Does your Application send Logs to Elasticsearch?
             choices:
               - 9_1_yes: Yes
               - 9_1_no: No
             type: radiogroup
             id: 9_1
             defaultChoice: false
-          - text: 9.2 Does your Application send BI logs to PubSub?
+          - text: 9.2 Does your Application send BI Logs to PubSub?
             choices:
               - 9_2_yes: Yes
               - 9_2_no: No
             type: radiogroup
             id: 9_2
             defaultChoice: false
-          - text: 9.3 Does your Application send metrics to Prometheus?
+          - text: 9.3 Does your Application send Metrics to Prometheus?
             choices:
               - 9_3_yes: Yes
               - 9_3_no: No
             type: radiogroup
             id: 9_3
             defaultChoice: false
-          - text: 9.4 Does your Application send spnas to Jaeger?
+          - text: 9.4 Does your Application send Spans to Jaeger?
             choices:
               - 9_4_yes: Yes
               - 9_4_no: No
