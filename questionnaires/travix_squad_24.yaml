@@ -27,7 +27,7 @@ questionnaire:
             type: radiogroup
             id: two_one
             defaultChoice: false
-          - text: 2.1.a Please list the 3rd party services
+          - text: 2.1.a Please list the 3rd party services (name and function)
             cond: two_one_yes
             type: box
             id: two_one_a
@@ -124,7 +124,6 @@ questionnaire:
               - 4_3_a_a: Database (MS SQL Cluster)
               - 4_3_a_b: Database (GCP SQL)
               - 4_3_a_c: GCP Bigtable/DataStore/Firestore/Filestore/Storage
-              - 4_3_a_d: Elasticsearch
               - 4_3_a_h: Other
             cond: pii_yes
             type: checkgroup
@@ -134,6 +133,14 @@ questionnaire:
             cond: 4_3_a_h
             type: box
             id: 4_3_b
+          - text: 4.4 Does your app logs unmasked PII data?
+            choices:
+              - 4_4_yes: Yes
+              - 4_4_no: No
+            cond: pii_yes
+            defaultChoice: false
+            type: radiogroup
+            id: 4_4
 #####################################################################
       - text: 5. Vulnerability Scanning 
         required: true
@@ -263,7 +270,7 @@ questionnaire:
               - 7_1_d_c: Estafette Global Secret
               - 7_1_d_d: Estafette Repo Secret
               - 7_1_d_e: MAAT / Database
-              - 7_1_d_f: Bitbucket Repository
+              - 7_1_d_f: Bitbucket Repository/Hardcoded
               - 7_1_d_h: Other
             cond: 7_1_yes
             type: checkgroup
