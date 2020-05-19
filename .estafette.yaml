@@ -1,7 +1,7 @@
 labels:
   app: vsaq
   team: security
-  language: js
+  language: javascript
 
 stages:
   format:
