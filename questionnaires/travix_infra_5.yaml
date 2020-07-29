@@ -104,35 +104,35 @@ questionnaire:
         type: block
         id: security_scans
         items:
-          - text: 3.1 All Application get automatically scanned by the CICD prior deployment to confirm peer-review approval? [CIS-RAM-2.8]
+          - text: 3.1 All Applications get automatically scanned by the CICD prior deployment to confirm peer-review approval? [CIS-RAM-2.8]
             choices:
               - 3_1_yes: Yes
               - 3_1_no: No
             type: radiogroup
             id: 3_1
             defaultChoice: false
-          - text: 3.2 All Application get automatically scanned by the CICD prior deployment to detect vulnerabilities in source code (ex Sonarqube) and fail on high score? [CIS-RAM-3.1]
+          - text: 3.2 All Applications get automatically scanned by the CICD prior deployment to detect vulnerabilities in source code (ex Sonarqube) and fail on high score? [CIS-RAM-3.1]
             choices:
               - 3_2_yes: Yes
               - 3_2_no: No
             type: radiogroup
             id: 3_2
             defaultChoice: false
-          - text: 3.3 All Application get automatically scanned by the CICD prior deployment to detect vulnerabilities in packages (ex Snyk.io) and fail on high score? [CIS-RAM-3.1]
+          - text: 3.3 All Applications get automatically scanned by the CICD prior deployment to detect vulnerabilities in packages (ex Snyk.io) and fail on high score? [CIS-RAM-3.1]
             choices:
               - 3_3_yes: Yes
               - 3_3_no: No
             type: radiogroup
             id: 3_3
             defaultChoice: false
-          - text: 3.4 All Application get automatically scanned by the CICD prior deployment to detect vulnerabilities in Docker images (ex Snyk.io or Trivy) and fail on high score? [CIS-RAM-3.1]
+          - text: 3.4 All Applications get automatically scanned by the CICD prior deployment to detect vulnerabilities in Docker images (ex Snyk.io or Trivy) and fail on high score? [CIS-RAM-3.1]
             choices:
               - 3_4_yes: Yes
               - 3_4_no: No
             type: radiogroup
             id: 3_4
             defaultChoice: false
-          - text: 3.5 All Application get automatically scanned by the CICD prior deployment to detect vulnerabilities in configuration (ex OWASP ZAP)? [CIS-RAM-5.5]
+          - text: 3.5 All Applications get automatically scanned by the CICD prior deployment to detect vulnerabilities in configuration (ex OWASP ZAP)? [CIS-RAM-5.5]
             choices:
               - 3_5_yes: Yes
               - 3_5_no: No
