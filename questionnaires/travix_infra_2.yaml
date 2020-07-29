@@ -1,0 +1,389 @@
+questionnaire:
+  - text: Infra Security assessment 
+    version: 1.3
+    type: block
+    items:
+      - text: 1. Squad Information
+        required: true
+        type: block
+        id: block_company_info
+        items:
+          - text: 1.1 Squad Name
+            type: line
+            id: name_of_product
+          - text: 1.2 Email address of Infra Engineer supporting the sqaud
+            type: line
+            id: security_contact
+#####################################################################
+      - text: 2. Infra Assets
+        required: true
+        type: block
+        id: infra_assets
+        items:
+          - text: 2.1 Is there a list of all assets (applications, resources, clusters, projects)? and assets are linked? for example for app X deployed by your squad it's linked to a Project, Cloud Resources, Services, Dependencies, etc [CIS-RAM-1.4]
+            choices:
+              - two_one_yes: Yes
+              - two_one_no: No
+            type: radiogroup
+            id: two_one
+            defaultChoice: false
+          - text: 2.1.a Please share a link to the Assets list
+            cond: two_one_yes
+            type: box
+            id: two_one_a
+          - text: 2.1.b Is the list of assets updated automatically and regularly? [CIS-RAM-2.3]
+            cond: two_one_yes
+            choices:
+              - 2_1_b_yes: Yes
+              - 2_1_b_no: No
+            type: radiogroup
+            id: two_one_b
+            defaultChoice: 2_1_b_no
+          - text: 2.1.c Is the list of assets detailed with name, repo, version, publisher, install date, operating systems, docker version and business description? [CIS-RAM-2.4]
+            cond: two_one_yes
+            choices:
+              - 2_1_c_yes: Yes
+              - 2_1_c_no: No
+            type: radiogroup
+            id: two_one_c
+            defaultChoice: 2_1_c_no
+          - text: 2.1.d Is the list of assets detailed with HTTP Protocol, TLS version, active ports, services, IPs? [CIS-RAM-9.1]
+            cond: two_one_yes
+            choices:
+              - 2_1_d_yes: Yes
+              - 2_1_d_no: No
+            type: radiogroup
+            id: two_one_d
+            defaultChoice: 2_1_d_no
+          - text: 2.2 Is unrecognized or unauthorized asset get deleted or disabled regularly? [CIS-RAM-1.6]
+            choices:
+              - two_two_yes: Yes
+              - two_two_no: No
+            type: radiogroup
+            id: two_two
+            defaultChoice: false
+          - text: 2.2.a Do you ensure that only network ports, protocols, and services listening on a system with validated business needs, are running on each system (ex API can be public only to validated business needs)? [CIS-RAM-9.2]
+            cond: two_two_yes
+            choices:
+              - 2_2_a_yes: Yes
+              - 2_2_a_no: No
+            type: radiogroup
+            id: 2_2_a
+            defaultChoice: false
+          - text: 2.3 Access to the assets like organization's trusted network, internal application, backoffice and api are protected by Single Sign-on (like Google IAP)? [CIS-RAM-1.8;CIS-RAM-16.2]
+            choices:
+              - two_3_yes: Yes
+              - two_3_no: No
+            type: radiogroup
+            id: two_3
+            defaultChoice: false
+          - text: 2.4 All Assets are not using the default authentication (ex default Service Account, or default username and password)? [CIS-RAM-2.7]
+            choices:
+              - two_4_yes: Yes
+              - two_4_no: No
+            type: radiogroup
+            id: two_4
+            defaultChoice: false
+          - text: 2.5 All Assets are deployed using Infra-as-a-Code (GitOps) style via CICD system? [CIS-RAM-2.6;CIS-RAM-11.2]
+            choices:
+              - two_5_yes: Yes
+              - two_5_no: No
+            type: radiogroup
+            id: two_5
+            defaultChoice: false
+          - text: 2.6 All Assets in PCI Environment are physically or logically separated from other environments? [CIS-RAM-2.10]
+            choices:
+              - two_6_yes: Yes
+              - two_6_no: No
+            type: radiogroup
+            id: two_6
+            defaultChoice: false
+#####################################################################
+      - text: 3. Vulnerability and Patch Managements
+        required: true
+        type: block
+        id: security_scans
+        items:
+          - text: 3.1 All Application get automatically scanned by the CICD prior deployment to confirm peer review approval? [CIS-RAM-2.8]
+            choices:
+              - 3_1_yes: Yes
+              - 3_1_no: No
+            type: radiogroup
+            id: 3_1
+            defaultChoice: false
+          - text: 3.2 All Application get automatically scanned by the CICD prior deployment to detect vulnerabilities in source code (ex Sonarqube) and fail on high score? [CIS-RAM-3.1]
+            choices:
+              - 3_2_yes: Yes
+              - 3_2_no: No
+            type: radiogroup
+            id: 3_2
+            defaultChoice: false
+          - text: 3.3 All Application get automatically scanned by the CICD prior deployment to detect vulnerabilities in packages (ex Snyk.io) and fail on high score? [CIS-RAM-3.1]
+            choices:
+              - 3_3_yes: Yes
+              - 3_3_no: No
+            type: radiogroup
+            id: 3_3
+            defaultChoice: false
+          - text: 3.4 All Application get automatically scanned by the CICD prior deployment to detect vulnerabilities in docker images (ex Snyk.io or Trivy) and fail on high score? [CIS-RAM-3.1]
+            choices:
+              - 3_4_yes: Yes
+              - 3_4_no: No
+            type: radiogroup
+            id: 3_4
+            defaultChoice: false
+          - text: 3.5 All Application get automatically scanned by the CICD prior deployment to detect vulnerabilities in configuration (ex OWASP ZAP)? [CIS-RAM-5.5]
+            choices:
+              - 3_5_yes: Yes
+              - 3_5_no: No
+            type: radiogroup
+            id: 3_5
+            defaultChoice: false
+          - text: 3.6 Automated vulnerability scanning is running with agents running locally on each internal network VPC (ex Tenable.io Agent)? [CIS-RAM-3.2;CIS-RAM-9.3]
+            choices:
+              - 3_6_yes: Yes
+              - 3_6_no: No
+            type: radiogroup
+            id: 3_6
+            defaultChoice: false
+          - text: 3.7 Vulnerability Scanning Agent has the right permission and access to scan the internal network (ex Tenable.io Agent)? [CIS-RAM-3.3]
+            choices:
+              - 3_7_yes: Yes
+              - 3_7_no: No
+            type: radiogroup
+            id: 3_7
+            defaultChoice: false
+          - text: 3.8 VM Operating System get updated automatically to install most recent security updates provided by the software vendor? [CIS-RAM-3.4]
+            choices:
+              - 3_8_yes: Yes
+              - 3_8_no: No
+            type: radiogroup
+            id: 3_8
+            defaultChoice: false
+          - text: 3.9 K8S Clusters get upgraded automatically or manually based on a predefined upgrade policy? [CIS-RAM-3.5]
+            choices:
+              - 3_9_yes: Yes
+              - 3_9_no: No
+            type: radiogroup
+            id: 3_9
+            defaultChoice: false
+#####################################################################
+      - text: 4. Access Control
+        required: true
+        type: block
+        id: block_pii
+        items:
+          - text: 4.1 Are you using automated tools to inventory all administrative accounts, domain accounts, and application accounts (Service Account) to ensure that only authorized individuals and applications have elevated privileges (iam-role-binding)? [CIS-RAM-4.1;CIS-RAM-16.6]
+            choices:
+              - 4_1_yes: Yes
+              - 4_1_no: No
+            type: radiogroup
+            id: 4_1
+            defaultChoice: false
+          - text: 4.2 Direct Access to a Machine or a Docker image (ex SSH, RDP, EXEC) is limited and used only for investgating a productino issue? [CIS-RAM-4.7]
+            choices:
+              - 4_2_yes: Yes
+              - 4_2_no: No
+            type: radiogroup
+            id: 4_2
+            defaultChoice: false
+          - text: 4.3 CICD system provide access control to only allow squad member to release to production? [CIS-RAM-14.6]
+            choices:
+              - 4_3_yes: Yes
+              - 4_3_no: No
+            type: radiogroup
+            id: 4_3
+            defaultChoice: false
+          - text: 4.4 CICD system provide access control to enforce peer reviewe by Infra enigneer on template changes (ex changes on .estafette.yaml require SWAT approval)? [CIS-RAM-14.8]
+            choices:
+              - 4_4_yes: Yes
+              - 4_4_no: No
+            type: radiogroup
+            id: 4_4
+            defaultChoice: false
+#####################################################################
+      - text: 5. Infra Security 
+        required: true
+        type: block
+        id: 5
+        items:
+          - text: 5.1 Infra Security Standard has been published, maintained and followed? [CIS-RAM-5.1]
+            choices:
+              - 5_1_yes: Yes
+              - 5_1_no: No
+            type: radiogroup
+            id: 5_1
+            defaultChoice: false
+          - text: 5.2 Docker images get signed by the CICD system? [CIS-RAM-5.2]
+            choices:
+              - 5_2_yes: Yes
+              - 5_2_no: No
+            type: radiogroup
+            id: 5_2
+            defaultChoice: false
+          - text: 5.3 K8S cluster was configured to run only signed docker images preventing manual deployment even by an administrator (cloud.google.com/binary-authorization)? [CIS-RAM-5.3]
+            choices:
+              - 5_3_yes: Yes
+              - 5_3_no: No
+            type: radiogroup
+            id: 5_3
+            defaultChoice: false
+          - text: 5.4 Infra-as-a-Code get compared with the cloud state regurely to detect manual changes? [CIS-RAM-5.4]
+            choices:
+              - 5_4_yes: Yes
+              - 5_4_no: No
+            type: radiogroup
+            id: 5_4
+            defaultChoice: false
+#####################################################################
+      - text: 6. Observability 
+        required: true
+        type: block
+        id: 6
+        items:
+          - text: 6.1 All Applications send detailed logs to a centrlized logging system (ex Elasticsearch)? [CIS-RAM-6.3]
+            choices:
+              - 6_1_yes: Yes
+              - 6_1_no: No
+            type: radiogroup
+            id: 6_1
+            defaultChoice: false
+          - text: 6.2 All Applications send detailed HTTP metrics to a centrlized logging system? (ex Prometheus) [CIS-RAM-6.3]
+            choices:
+              - 6_2_yes: Yes
+              - 6_2_no: No
+            type: radiogroup
+            id: 6_2
+            defaultChoice: false
+          - text: 6.3 Application' Sidecar send detailed access logs (such as a event source, date, user, timestamp, source addresses, destination addresses) to a centrlized logging system?  [CIS-RAM-6.3]
+            choices:
+              - 6_3_yes: Yes
+              - 6_3_no: No
+            type: radiogroup
+            id: 6_3
+            defaultChoice: false
+          - text: 6.4 All resources send detailed Audit logs to a centrlized logging system (ex Stackdriver)? [CIS-RAM-6.2]
+            choices:
+              - 6_4_yes: Yes
+              - 6_4_no: No
+            type: radiogroup
+            id: 6_4
+            defaultChoice: false
+          - text: 6.5 All Audit logs stored for at least three months? [CIS-RAM-6.4]
+            choices:
+              - 6_5_yes: Yes
+              - 6_5_no: No
+            type: radiogroup
+            id: 6_5
+            defaultChoice: false
+          - text: 6.6 All Egress HTTP request logged to a centrlized logging system (ex Cloudflare logs)? [CIS-RAM-7.6]
+            choices:
+              - 6_6_yes: Yes
+              - 6_6_no: No
+            type: radiogroup
+            id: 6_6
+            defaultChoice: false
+          - text: 6.7 kube-dns send logs a centrlized logging system query logging to detect hostname lookups for known malicious domains? [CIS-RAM-8.7]
+            choices:
+              - 6_7_yes: Yes
+              - 6_7_no: No
+            type: radiogroup
+            id: 6_7
+            defaultChoice: false
+          - text: 6.8 CICD system provide detailed audit logs? [CIS-RAM-14.9]
+            choices:
+              - 6_8_yes: Yes
+              - 6_8_no: No
+            type: radiogroup
+            id: 6_8
+            defaultChoice: false
+#####################################################################
+      - text: 7. Connectivity 
+        required: true
+        type: block
+        id: 7
+        items:
+          - text: 7.1 Network policy is implemented on all ingress connections to allow only authorized access on resources, apis, etc (ex ESP, Istio, Kubernetes Network Policy)? [CIS-RAM-7.4]
+            choices:
+              - 7_1_yes: Yes
+              - 7_1_no: No
+            type: radiogroup
+            id: 7_1
+            defaultChoice: false
+          - text: 7.2 Network policy is implemented on all egress connections so that internal application can only access whitelisted domains and/or IPs (ex Kubernetes Network Policy)? [CIS-RAM-7.4]
+            choices:
+              - 7_2_yes: Yes
+              - 7_2_no: No
+            type: radiogroup
+            id: 7_2
+            defaultChoice: false
+          - text: 7.2.a DNS filtering is used to help block access to known malicious domains (ex K8S Core-DNS)? [CIS-RAM-7.7]
+            cond: 7_2_no
+            choices:
+              - 7_2_a_yes: Yes
+              - 7_2_a_no: No
+            type: radiogroup
+            id: 7_2_a
+            defaultChoice: 7_2_a_no
+          - text: 7.3 An Aplication with a public endpoint can't be deployed without OAS (OpenAPI Specification) enforced in the source code (ex Google ESP with openapi.yaml)? [CIS-RAM-9.4]
+            choices:
+              - 7_3_yes: Yes
+              - 7_3_no: No
+            type: radiogroup
+            id: 7_3
+            defaultChoice: false
+          - text: 7.4 WAF (Web Application Firewall) is implemented infront all intenet ingress traffic (ex Cloudflare WAF)? [CIS-RAM-9.5]
+            choices:
+              - 7_4_yes: Yes
+              - 7_4_no: No
+            type: radiogroup
+            id: 7_4
+            defaultChoice: false
+#####################################################################
+      - text: 8. Backup and Restore 
+        required: true
+        type: block
+        id: 8
+        items:
+          - text: 8.1 Do you ensure that each of the organization's key systems are backed up as a complete system, through processes such as imaging, to enable the quick recovery of an entire system? [CIS-RAM-10.2]
+            choices:
+              - 8_1_yes: Yes
+              - 8_1_no: No
+            type: radiogroup
+            id: 8_1
+            defaultChoice: false
+          - text: 8.2 Do you test data integrity on backup media on a regular basis by performing a data restoration process to ensure that the backup is properly working? [CIS-RAM-10.3]
+            choices:
+              - 8_2_yes: Yes
+              - 8_2_no: No
+            type: radiogroup
+            id: 8_2
+            defaultChoice: false
+          - text: 8.3 Do you ensure that backups are properly protected via encryption when they are stored, as well as when they are moved across the network. This includes remote backups and cloud services? [CIS-RAM-10.4]
+            choices:
+              - 8_3_yes: Yes
+              - 8_3_no: No
+            type: radiogroup
+            id: 8_3
+            defaultChoice: false
+          - text: 8.4 Backup are stored in external place or diffrent cloud account (ex AWS)? [CIS-RAM-10.5]
+            choices:
+              - 8_4_yes: Yes
+              - 8_4_no: No
+            type: radiogroup
+            id: 8_4
+            defaultChoice: false
+#####################################################################
+      - text: 9. Security Training and Awareness
+        required: true
+        type: block
+        id: 9
+        items:
+          - text: 9.1 Do you received or planned Security Training in 2020?
+            choices:
+              - 9_1_yes: Yes
+              - 9_1_no: No
+            type: radiogroup
+            id: 9_1
+            defaultChoice: false
+#####################################################################  
