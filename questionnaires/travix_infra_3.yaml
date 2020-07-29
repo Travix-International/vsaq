@@ -11,7 +11,7 @@ questionnaire:
           - text: 1.1 Squad Name
             type: line
             id: name_of_product
-          - text: 1.2 Email address of Infra Engineer supporting the sqaud
+          - text: 1.2 Email address of Infra Engineer supporting the squad
             type: line
             id: security_contact
 #####################################################################
@@ -39,7 +39,7 @@ questionnaire:
             type: radiogroup
             id: two_one_b
             defaultChoice: 2_1_b_no
-          - text: 2.1.c Is the list of assets detailed with name, repo, version, publisher, install date, operating systems, docker version and business description? [CIS-RAM-2.4]
+          - text: 2.1.c Is the list of assets detailed with name, repo, version, publisher, install date, Operating Systems, Docker version and business description? [CIS-RAM-2.4]
             cond: two_one_yes
             choices:
               - 2_1_c_yes: Yes
@@ -70,7 +70,7 @@ questionnaire:
             type: radiogroup
             id: 2_2_a
             defaultChoice: false
-          - text: 2.3 Access to the assets like organization's trusted network, internal application, backoffice and api are protected by Single Sign-on (like Google IAP)? [CIS-RAM-1.8;CIS-RAM-16.2]
+          - text: 2.3 Access to the assets like an organization's trusted network, internal application, backoffice and APIs are protected by Single Sign-on (like Google IAP)? [CIS-RAM-1.8;CIS-RAM-16.2]
             choices:
               - two_3_yes: Yes
               - two_3_no: No
@@ -104,7 +104,7 @@ questionnaire:
         type: block
         id: security_scans
         items:
-          - text: 3.1 All Application get automatically scanned by the CICD prior deployment to confirm peer review approval? [CIS-RAM-2.8]
+          - text: 3.1 All Application get automatically scanned by the CICD prior deployment to confirm peer-review approval? [CIS-RAM-2.8]
             choices:
               - 3_1_yes: Yes
               - 3_1_no: No
@@ -125,7 +125,7 @@ questionnaire:
             type: radiogroup
             id: 3_3
             defaultChoice: false
-          - text: 3.4 All Application get automatically scanned by the CICD prior deployment to detect vulnerabilities in docker images (ex Snyk.io or Trivy) and fail on high score? [CIS-RAM-3.1]
+          - text: 3.4 All Application get automatically scanned by the CICD prior deployment to detect vulnerabilities in Docker images (ex Snyk.io or Trivy) and fail on high score? [CIS-RAM-3.1]
             choices:
               - 3_4_yes: Yes
               - 3_4_no: No
@@ -180,21 +180,21 @@ questionnaire:
             type: radiogroup
             id: 4_1
             defaultChoice: false
-          - text: 4.2 Direct Access to a Machine or a Docker image (ex SSH, RDP, EXEC) is limited and used only for investgating a productino issue? [CIS-RAM-4.7]
+          - text: 4.2 Direct Access to a Machine or a Docker image (ex SSH, RDP, EXEC) is limited and used only for investigating a production issue? [CIS-RAM-4.7]
             choices:
               - 4_2_yes: Yes
               - 4_2_no: No
             type: radiogroup
             id: 4_2
             defaultChoice: false
-          - text: 4.3 CICD system provide access control to only allow squad member to release to production? [CIS-RAM-14.6]
+          - text: 4.3 CICD system provides access control to only allow squad member to release to production? [CIS-RAM-14.6]
             choices:
               - 4_3_yes: Yes
               - 4_3_no: No
             type: radiogroup
             id: 4_3
             defaultChoice: false
-          - text: 4.4 CICD system provide access control to enforce peer reviewe by Infra enigneer on template changes (ex changes on .estafette.yaml require SWAT approval)? [CIS-RAM-14.8]
+          - text: 4.4 CICD system provides access control to enforce peer-reviewe by an Infra engineer on template changes (ex changes on .estafette.yaml require SWAT approval)? [CIS-RAM-14.8]
             choices:
               - 4_4_yes: Yes
               - 4_4_no: No
@@ -221,14 +221,14 @@ questionnaire:
             type: radiogroup
             id: 5_2
             defaultChoice: false
-          - text: 5.3 K8S cluster was configured to run only signed docker images preventing manual deployment even by an administrator (cloud.google.com/binary-authorization)? [CIS-RAM-5.3]
+          - text: 5.3 K8S cluster was configured to run only signed Docker images preventing manual deployment even by an administrator (cloud.google.com/binary-authorization)? [CIS-RAM-5.3]
             choices:
               - 5_3_yes: Yes
               - 5_3_no: No
             type: radiogroup
             id: 5_3
             defaultChoice: false
-          - text: 5.4 Infra-as-a-Code get compared with the cloud state regurely to detect manual changes? [CIS-RAM-5.4]
+          - text: 5.4 Infra-as-a-Code get compared with the cloud state regularly to detect manual changes? [CIS-RAM-5.4]
             choices:
               - 5_4_yes: Yes
               - 5_4_no: No
@@ -241,28 +241,28 @@ questionnaire:
         type: block
         id: 6
         items:
-          - text: 6.1 All Applications send detailed logs to a centrlized logging system (ex Elasticsearch)? [CIS-RAM-6.3]
+          - text: 6.1 All Applications send detailed logs to a centralized logging system (ex Elasticsearch)? [CIS-RAM-6.3]
             choices:
               - 6_1_yes: Yes
               - 6_1_no: No
             type: radiogroup
             id: 6_1
             defaultChoice: false
-          - text: 6.2 All Applications send detailed HTTP metrics to a centrlized logging system? (ex Prometheus) [CIS-RAM-6.3]
+          - text: 6.2 All Applications send detailed HTTP metrics to a centralized logging system? (ex Prometheus) [CIS-RAM-6.3]
             choices:
               - 6_2_yes: Yes
               - 6_2_no: No
             type: radiogroup
             id: 6_2
             defaultChoice: false
-          - text: 6.3 Application' Sidecar send detailed access logs (such as a event source, date, user, timestamp, source addresses, destination addresses) to a centrlized logging system?  [CIS-RAM-6.3]
+          - text: 6.3 Application' Sidecar send detailed access logs (such as event source, date, user, timestamp, source addresses, destination addresses) to a centralized logging system?  [CIS-RAM-6.3]
             choices:
               - 6_3_yes: Yes
               - 6_3_no: No
             type: radiogroup
             id: 6_3
             defaultChoice: false
-          - text: 6.4 All resources send detailed Audit logs to a centrlized logging system (ex Stackdriver)? [CIS-RAM-6.2]
+          - text: 6.4 All resources send detailed Audit logs to a centralized logging system (ex Stackdriver)? [CIS-RAM-6.2]
             choices:
               - 6_4_yes: Yes
               - 6_4_no: No
@@ -276,21 +276,21 @@ questionnaire:
             type: radiogroup
             id: 6_5
             defaultChoice: false
-          - text: 6.6 All Egress HTTP request logged to a centrlized logging system (ex Cloudflare logs)? [CIS-RAM-7.6]
+          - text: 6.6 All Egress HTTP request logged to a centralized logging system (ex Cloudflare logs)? [CIS-RAM-7.6]
             choices:
               - 6_6_yes: Yes
               - 6_6_no: No
             type: radiogroup
             id: 6_6
             defaultChoice: false
-          - text: 6.7 kube-dns send logs a centrlized logging system query logging to detect hostname lookups for known malicious domains? [CIS-RAM-8.7]
+          - text: 6.7 kube-dns send logs a centralized logging system query logging to detect hostname lookups for known malicious domains? [CIS-RAM-8.7]
             choices:
               - 6_7_yes: Yes
               - 6_7_no: No
             type: radiogroup
             id: 6_7
             defaultChoice: false
-          - text: 6.8 CICD system provide detailed audit logs? [CIS-RAM-14.9]
+          - text: 6.8 CICD system provides detailed audit logs? [CIS-RAM-14.9]
             choices:
               - 6_8_yes: Yes
               - 6_8_no: No
@@ -303,7 +303,7 @@ questionnaire:
         type: block
         id: 7
         items:
-          - text: 7.1 Network policy is implemented on all ingress connections to allow only authorized access on resources, apis, etc (ex ESP, Istio, Kubernetes Network Policy)? [CIS-RAM-7.4]
+          - text: 7.1 Network policy is implemented on all ingress connections to allow only authorized access on resources, APIs, etc (ex ESP, Istio, Kubernetes Network Policy)? [CIS-RAM-7.4]
             choices:
               - 7_1_yes: Yes
               - 7_1_no: No
@@ -325,14 +325,14 @@ questionnaire:
             type: radiogroup
             id: 7_2_a
             defaultChoice: 7_2_a_no
-          - text: 7.3 An Aplication with a public endpoint can't be deployed without OAS (OpenAPI Specification) enforced in the source code (ex Google ESP with openapi.yaml)? [CIS-RAM-9.4]
+          - text: 7.3 An Application with a public endpoint can't be deployed without OAS (OpenAPI Specification) enforced in the source code (ex Google ESP with openapi.yaml)? [CIS-RAM-9.4]
             choices:
               - 7_3_yes: Yes
               - 7_3_no: No
             type: radiogroup
             id: 7_3
             defaultChoice: false
-          - text: 7.4 WAF (Web Application Firewall) is implemented infront all intenet ingress traffic (ex Cloudflare WAF)? [CIS-RAM-9.5]
+          - text: 7.4 WAF (Web Application Firewall) is implemented in front all internet ingress traffic (ex Cloudflare WAF)? [CIS-RAM-9.5]
             choices:
               - 7_4_yes: Yes
               - 7_4_no: No
@@ -359,14 +359,14 @@ questionnaire:
             type: radiogroup
             id: 8_2
             defaultChoice: false
-          - text: 8.3 Do you ensure that backups are properly protected via encryption when they are stored, as well as when they are moved across the network. This includes remote backups and cloud services? [CIS-RAM-10.4]
+          - text: 8.3 Do you ensure that backups are properly protected via encryption when they are stored, as well as when they are moved across the network? [CIS-RAM-10.4]
             choices:
               - 8_3_yes: Yes
               - 8_3_no: No
             type: radiogroup
             id: 8_3
             defaultChoice: false
-          - text: 8.4 Backup are stored in external place or diffrent cloud account (ex AWS)? [CIS-RAM-10.5]
+          - text: 8.4 Backup are stored in an external place or different cloud account (ex AWS)? [CIS-RAM-10.5]
             choices:
               - 8_4_yes: Yes
               - 8_4_no: No
