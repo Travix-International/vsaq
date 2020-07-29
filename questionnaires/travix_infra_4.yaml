@@ -276,14 +276,14 @@ questionnaire:
             type: radiogroup
             id: 6_5
             defaultChoice: false
-          - text: 6.6 All Egress HTTP request logged to a centralized logging system (ex Cloudflare logs)? [CIS-RAM-7.6]
+          - text: 6.6 All Ingress HTTP request logged to a centralized logging system (ex Cloudflare logs)? [CIS-RAM-7.6]
             choices:
               - 6_6_yes: Yes
               - 6_6_no: No
             type: radiogroup
             id: 6_6
             defaultChoice: false
-          - text: 6.7 kube-dns send logs a centralized logging system query logging to detect hostname lookups for known malicious domains? [CIS-RAM-8.7]
+          - text: 6.7 kube-dns send logs to a centralized logging system to detect hostname lookups for known malicious domains? [CIS-RAM-8.7]
             choices:
               - 6_7_yes: Yes
               - 6_7_no: No
@@ -332,7 +332,7 @@ questionnaire:
             type: radiogroup
             id: 7_3
             defaultChoice: false
-          - text: 7.4 WAF (Web Application Firewall) is implemented in front all internet ingress traffic (ex Cloudflare WAF)? [CIS-RAM-9.5]
+          - text: 7.4 WAF (Web Application Firewall) is implemented in front of all internet ingress traffic (ex Cloudflare WAF)? [CIS-RAM-9.5]
             choices:
               - 7_4_yes: Yes
               - 7_4_no: No
